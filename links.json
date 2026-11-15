@@ -1,0 +1,54 @@
+{
+  "name": "Mridul Sharma",
+  "handle": "@mridulmerges",
+  "tagline": "Tech, explained simply.",
+  "bio": "Software architecture, pseudocode and AI in under a minute. A new Bits & Bytes episode every day.",
+  "social": [
+    {
+      "slug": "tiktok",
+      "label": "TikTok",
+      "sub": "New episode every day",
+      "icon": "tiktok",
+      "url": "https://www.tiktok.com/@mridulmerges"
+    },
+    {
+      "slug": "instagram",
+      "label": "Instagram",
+      "sub": "Bits & Bytes as Reels",
+      "icon": "instagram",
+      "url": "https://www.instagram.com/mridulmerges/"
+    },
+    {
+      "slug": "youtube",
+      "label": "YouTube",
+      "sub": "Bits & Bytes as Shorts",
+      "icon": "youtube",
+      "url": "https://www.youtube.com/@mridulmerges"
+    },
+    {
+      "slug": "linkedin",
+      "label": "LinkedIn",
+      "sub": "Longer write-ups, Mon · Wed · Fri",
+      "icon": "linkedin",
+      "url": "https://www.linkedin.com/in/mridulmerges"
+    }
+  ],
+  "building": [
+    {
+      "slug": "gusset",
+      "label": "Gusset",
+      "role": "Founder",
+      "status": "Live",
+      "sub": "A work-experience log for Canadian engineers-in-training working toward their P.Eng, with a built-in AI assistant.",
+      "url": "https://gussetlog.ca/?utm_source=mridulmerges&utm_medium=links"
+    },
+    {
+      "slug": null,
+      "label": "Switchboard",
+      "status": "In progress",
+      "sub": "Routes each prompt to the right AI model automatically, so simple questions don't burn the expensive one. Built in public."
+    }
+  ],
+  "signoff": "Plant a seed today, grow a better tomorrow.",
+  "note": "More small builds on the way, each explained start to finish."
+}
