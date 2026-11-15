@@ -10,7 +10,7 @@ const svg = (name) => `<svg viewBox="0 0 24 24" aria-hidden="true"><path d="${ic
 
 const arrow = `<svg class="arr" viewBox="0 0 24 24" aria-hidden="true"><path d="M4 12h15M13 6l6 6-6 6" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="square"/></svg>`;
 const social = site.social.map((l) => `
-        <li><a class="route rv" href="/go/${l.slug}" data-slug="${l.slug}">
+        <li><a class="route" href="/go/${l.slug}" data-slug="${l.slug}">
           <span class="ic">${svg(l.icon)}</span>
           <b>${esc(l.label)}</b>
           <span class="d">${esc(l.sub)}</span>
@@ -25,7 +25,7 @@ const html = readFileSync("template.html", "utf8")
   .replaceAll("{{signoff}}", esc(site.signoff))
   .replaceAll("{{year}}", String(new Date().getFullYear()))
   .replace("{{social}}", social)
-  .replace("{{mini}}", mini)
+  .replaceAll("{{mini}}", mini)
   .replace("{{gus}}", gus);
 if (/\{\{\w+\}\}/.test(html)) throw new Error("unfilled placeholder: " + html.match(/\{\{\w+\}\}/)[0]);
 writeFileSync("public/index.html", html);

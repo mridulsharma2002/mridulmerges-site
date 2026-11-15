@@ -22,6 +22,7 @@
 <link rel="apple-touch-icon" href="/img/apple-touch-icon.png">
 <link rel="preload" href="/fonts/archivo-latin-800-normal.woff2" as="font" type="font/woff2" crossorigin>
 <link rel="preload" href="/fonts/ibm-plex-mono-latin-500-normal.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="/fonts/ibm-plex-sans-latin-400-normal.woff2" as="font" type="font/woff2" crossorigin>
 <script type="application/ld+json">
 {"@context":"https://schema.org","@type":"Person","name":"Mridul Sharma","alternateName":"mridulmerges","url":"{{url}}/","image":"{{url}}/img/mridul-480.jpg",
 "jobTitle":"Software Solutions EIT","worksFor":{"@type":"Organization","name":"Dillon Consulting"},
@@ -60,6 +61,7 @@ img,svg{display:block}
 .sr{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap}
 .sheet{max-width:1120px;margin:0 auto;padding:0 16px}
 @media (min-width:760px){.sheet{padding:0 28px}}
+@media (max-width:420px){.dim span:first-child{display:none}}
 .lbl{font:500 11px/1.3 var(--mono);letter-spacing:.12em;text-transform:uppercase;color:var(--ink-3)}
 
 /* title strip */
@@ -70,14 +72,20 @@ img,svg{display:block}
 .strip .cell b{font:500 12.5px/1.2 var(--mono);color:var(--ink)}
 .strip nav{margin-left:auto;display:flex;align-items:stretch}
 .strip nav a{font:500 12px/1 var(--mono);letter-spacing:.08em;text-transform:uppercase;padding:0 14px;display:none;align-items:center;border-left:1px solid var(--rule);transition:background .2s,color .2s}
-.strip nav a:hover{background:var(--ink);color:var(--paper)}
+@media (hover:hover){.strip nav a:hover{background:var(--ink);color:var(--paper)}}
 .strip nav a.cta{display:flex;background:var(--ink);color:var(--paper);border-left:0;padding:0 16px}
 .strip nav a.cta:hover{background:var(--sig)}
+@supports (animation-timeline:scroll()){.strip::after{content:"";position:absolute;left:0;right:0;bottom:-1.5px;height:1.5px;background:var(--sig);transform-origin:left;transform:scaleX(0);animation:prog linear both;animation-timeline:scroll(root)}@keyframes prog{to{transform:scaleX(1)}}}
 @media (min-width:760px){.strip .cell{display:flex}.strip nav a{display:flex}}
 @media (max-width:1000px){.strip .cell.xy{display:none}}
 
 /* hero */
-.hero{padding:44px 0 8px}
+.hero{padding:28px 0 8px}
+.quick{display:flex;gap:8px;margin-top:14px}
+.quick a{width:48px;height:48px;display:grid;place-items:center;border:1.5px solid var(--ink);background:var(--card)}
+.quick a:active{background:var(--ink);color:var(--paper)}
+.quick svg{width:20px;height:20px;fill:currentColor}
+@media (min-width:900px){.quick{display:none}}
 .hero-grid{display:grid;gap:30px}
 @media (min-width:900px){.hero{padding:76px 0 16px}.hero-grid{grid-template-columns:1fr 300px;gap:56px;align-items:end}}
 .dim{display:flex;align-items:center;gap:10px;margin-bottom:16px}
@@ -86,7 +94,11 @@ img,svg{display:block}
 .dim i::before{left:0}.dim i::after{right:0}
 .drawn .dim i{transform:scaleX(1)}
 h1{font:800 clamp(56px,15.5vw,150px)/.86 var(--display);letter-spacing:-.045em;margin-left:-.04em}
-h1 span{display:block}
+h1 span{display:block;animation:rise .9s var(--ease) both}
+h1 span+span{animation-delay:.12s}
+@keyframes rise{from{clip-path:inset(0 0 100% 0);transform:translateY(.22em)}to{clip-path:inset(-10% -5% -15% -5%);transform:none}}
+.lead,.ctas,.quick,.figure{animation:fade .8s .45s var(--ease) both}
+@keyframes fade{from{opacity:0;transform:translateY(10px)}}
 .tag{display:flex;flex-wrap:wrap;align-items:baseline;gap:6px 14px;margin-top:24px}
 .tag strong{font:800 clamp(22px,4.6vw,34px)/1.1 var(--display);letter-spacing:-.02em;position:relative;white-space:nowrap}
 .tag strong svg{position:absolute;left:-2%;bottom:-10px;width:104%;height:14px;overflow:visible}
@@ -98,50 +110,52 @@ h1 span{display:block}
 .btn svg{width:15px;height:15px}
 .btn.solid{background:var(--ink);color:var(--paper)}
 .btn.line{background:var(--card)}
-.btn:hover{transform:translate(-3px,-3px);box-shadow:3px 3px 0 var(--sig)}
+@media (hover:hover){.btn.solid:hover{transform:translate(-3px,-3px);box-shadow:3px 3px 0 var(--sig)}.btn.line:hover{transform:translate(-3px,-3px);box-shadow:3px 3px 0 var(--ink)}}
+.btn:active{transform:translate(1px,1px)}
 
-.figure{position:relative}
+.figure{position:relative;padding:8px}
 .portrait{position:relative;width:150px;height:150px;border:1.5px solid var(--ink);background:var(--card);padding:7px}
 .portrait img{width:100%;height:100%;object-fit:cover;filter:grayscale(1) contrast(1.05);transition:filter .6s var(--ease)}
 .figure:hover .portrait img,.figure.active .portrait img{filter:none}
 .portrait::after{content:"";position:absolute;inset:-8px;border:1px dashed var(--rule-2);pointer-events:none}
-.callout{position:absolute;left:170px;top:14px;right:0}
+.callout{position:absolute;left:182px;top:22px;right:0}
 .callout .leader{position:absolute;left:-26px;top:8px;width:22px;height:1px;background:var(--ink)}
 .callout .leader::before{content:"";position:absolute;left:-3px;top:-3px;width:7px;height:7px;border-radius:50%;background:var(--sig)}
 .callout p{font:500 12px/1.5 var(--mono);color:var(--ink-2)}
 .callout b{color:var(--ink)}
 .callout .now{margin-top:12px;display:flex;align-items:center;gap:8px}
+.callout .pulse{background:var(--sig);animation:none}
 .pulse{flex:none;width:8px;height:8px;border-radius:50%;background:var(--live);animation:pulse 2.4s infinite}
 @keyframes pulse{0%{box-shadow:0 0 0 0 rgba(31,122,74,.5)}70%{box-shadow:0 0 0 8px rgba(31,122,74,0)}100%{box-shadow:0 0 0 0 rgba(31,122,74,0)}}
 @media (min-width:900px){.portrait{width:300px;height:300px;padding:9px}.callout{position:relative;left:0;top:0;margin-top:26px;padding-left:18px;border-left:1px solid var(--ink)}.callout .leader{left:-1px;top:-26px;width:1px;height:26px}.callout .leader::before{left:-3px;top:-3px}}
 
 /* section heads */
 section{padding:72px 0 0}
+@media (min-width:900px){section{padding-top:112px}.tb{margin-top:112px!important}}
 .head{display:grid;grid-template-columns:auto 1fr;gap:8px 16px;align-items:start;border-bottom:1.5px solid var(--ink);padding-bottom:14px;margin-bottom:22px}
 .head .no{font:800 14px/1 var(--display);background:var(--ink);color:var(--paper);padding:7px 8px;grid-row:span 2;margin-top:3px}
 .head h2{font:800 clamp(30px,6.4vw,48px)/1 var(--display);letter-spacing:-.03em}
 .head p{color:var(--ink-2);font-size:15.5px;max-width:42rem}
+.head p a{text-decoration:underline;text-decoration-color:var(--sig);text-underline-offset:3px}
 
 /* routes (socials) */
-.routes{border-top:1px solid var(--rule)}
+#follow .head{margin-bottom:0}
 .route{position:relative;display:grid;grid-template-columns:42px 1fr 22px;grid-template-areas:"ic t a" "ic d a";align-items:center;gap:2px 14px;padding:14px 8px;border-bottom:1px solid var(--rule);overflow:hidden;isolation:isolate;transition:color .25s}
 .route::before{content:"";position:absolute;inset:0;background:var(--ink);transform:scaleY(0);transform-origin:bottom;transition:transform .35s var(--ease);z-index:-1}
-.route:hover{color:var(--paper)}
-.route:hover::before{transform:scaleY(1)}
+@media (hover:hover){.route:hover{color:var(--paper)}.route:hover::before{transform:scaleY(1)}.route:hover .d{color:#bdb8ac}.route:hover .arr{transform:translateX(4px) rotate(-45deg);color:var(--sig)}}
+.route:active,.route:focus-visible{color:var(--paper)}.route:active::before,.route:focus-visible::before{transform:scaleY(1)}
 .route .ic{grid-area:ic;width:42px;height:42px;display:grid;place-items:center;border:1.5px solid currentColor}
 .route .ic svg{width:19px;height:19px;fill:currentColor}
 .route b{grid-area:t;font:800 clamp(22px,5vw,30px)/1.05 var(--display);letter-spacing:-.02em;display:block}
 .route .d{grid-area:d;font:500 12px/1.3 var(--mono);color:var(--ink-3);letter-spacing:.04em;transition:color .25s}
-.route:hover .d{color:#bdb8ac}
 .route .arr{grid-area:a;width:22px;height:22px;transition:transform .35s var(--ease),color .25s}
-.route:hover .arr{transform:translateX(4px) rotate(-45deg);color:var(--sig)}
 @media (min-width:760px){.route{grid-template-columns:46px 240px 1fr 22px;grid-template-areas:"ic t d a";gap:16px;padding:18px 14px}.route .d{font-size:13px}}
 
 /* details (projects) */
 .details{display:grid;gap:22px}
 @media (min-width:900px){.details{grid-template-columns:1fr 1fr}}
 .detail{position:relative;display:flex;flex-direction:column;background:var(--card);border:1.5px solid var(--ink);transition:transform .3s var(--ease),box-shadow .3s var(--ease)}
-.detail:hover{transform:translate(-4px,-4px);box-shadow:4px 4px 0 var(--ink)}
+@media (hover:hover){.detail:hover{transform:translate(-4px,-4px);box-shadow:4px 4px 0 var(--ink)}}
 .detail .tab{display:flex;justify-content:space-between;align-items:center;gap:10px;padding:10px 12px;border-bottom:1.5px solid var(--ink);font:500 11px/1 var(--mono);letter-spacing:.12em;text-transform:uppercase}
 .detail .tab .st{display:inline-flex;align-items:center;gap:7px}
 .stage{position:relative;height:250px;overflow:hidden;border-bottom:1px solid var(--rule);background-color:var(--paper);
@@ -158,10 +172,10 @@ section{padding:72px 0 0}
 .g-row{display:block;font-size:13.5px;background:var(--card);border:1px solid var(--rule-2);padding:8px 11px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;transition:opacity .45s var(--ease)}
 .g-row time{font:500 11px/1 var(--mono);color:var(--ink-3);min-width:50px;display:inline-block}
 .g-row.new{border:1.5px solid var(--sig)}
-.g-ask{position:absolute;right:104px;bottom:86px;max-width:180px;font-size:13.5px;line-height:1.4;color:#fff;background:var(--ink);padding:10px 13px;
+.g-ask{position:absolute;right:112px;bottom:22px;max-width:180px;font-size:13.5px;line-height:1.4;color:#fff;background:var(--ink);padding:10px 13px;
   opacity:0;transform:translateY(8px);transition:opacity .35s .3s,transform .45s .3s var(--ease)}
 .g-ask::after{content:"";position:absolute;right:-7px;bottom:10px;border:7px solid transparent;border-left-color:var(--ink);border-right:0}
-.g-gus{position:absolute;right:8px;bottom:-104px;width:100px;height:100px;transition:transform .6s var(--ease)}
+.g-gus{position:absolute;right:8px;bottom:-104px;width:100px;height:100px;transform:translateY(-24px);transition:transform .6s var(--ease)}
 .gus .gus-arm{transform-origin:72px 70px;transform:rotate(-70deg);transition:transform .4s .3s var(--ease)}
 .gus .gus-pupils{transition:transform .4s}
 .detail:hover .g-gus,.detail.active .g-gus{transform:translateY(-108px)}
@@ -202,7 +216,9 @@ section{padding:72px 0 0}
 
 /* revisions */
 .rev{width:100%;border-collapse:collapse;font-size:15px}
-.rev th{font:500 11px/1 var(--mono);letter-spacing:.12em;text-transform:uppercase;color:var(--ink-3);text-align:left;padding:0 12px 10px 0;border-bottom:1.5px solid var(--ink)}
+.rev th{font:500 11px/1 var(--mono);letter-spacing:.12em;text-transform:uppercase;color:var(--ink-3);text-align:left;padding:0 12px 10px 0;border-bottom:1px solid var(--rule)}
+.rev tbody tr{transition:background .2s}
+@media (hover:hover){.rev tbody tr:hover{background:var(--card)}}
 .rev td{padding:15px 12px 15px 0;border-bottom:1px solid var(--rule);vertical-align:top}
 .rev td.r{font:800 16px/1.4 var(--display);width:48px}
 .rev td.dt{font:500 12.5px/1.7 var(--mono);color:var(--ink-3);white-space:nowrap;width:1%}
@@ -227,14 +243,22 @@ section{padding:72px 0 0}
 .foot{padding:14px 0 calc(28px + env(safe-area-inset-bottom));display:flex;justify-content:space-between;flex-wrap:wrap;gap:8px}
 
 /* reveal */
+.routes li{opacity:0;transform:translateX(-12px);transition:opacity .5s var(--ease),transform .5s var(--ease)}
+.routes.in li{opacity:1;transform:none}
+.routes li:nth-child(2){transition-delay:.07s}.routes li:nth-child(3){transition-delay:.14s}.routes li:nth-child(4){transition-delay:.21s}
+.details .detail:nth-child(2),.notes .facts{transition-delay:.12s}
+.head{border-bottom:0;position:relative}
+.head::after{content:"";position:absolute;left:0;right:0;bottom:0;height:1.5px;background:var(--ink);transform:scaleX(0);transform-origin:left;transition:transform .9s .15s var(--ease)}
+.head.in::after{transform:scaleX(1)}
 .rv{opacity:0;transform:translateY(14px);transition:opacity .7s var(--ease),transform .7s var(--ease)}
 .rv.in{opacity:1;transform:none}
 .no-js .rv{opacity:1;transform:none}
+.no-js .routes li{opacity:1;transform:none}.no-js .head::after{transform:scaleX(1)}
 .no-js .dim i{transform:scaleX(1)}.no-js .tag strong path{stroke-dashoffset:0}
 @media (prefers-reduced-motion:reduce){
   html{scroll-behavior:auto}
   *,*::before,*::after{animation:none!important;transition:none!important}
-  .rv{opacity:1;transform:none}.dim i{transform:scaleX(1)}.tag strong path{stroke-dashoffset:0}
+  .rv,.routes li{opacity:1;transform:none}.head::after{transform:scaleX(1)}.dim i{transform:scaleX(1)}.tag strong path{stroke-dashoffset:0}
 }
 </style>
 </head>
@@ -245,7 +269,7 @@ section{padding:72px 0 0}
     <a class="home" href="#top" aria-label="Mridul Sharma, top of page"><svg width="24" height="24" viewBox="0 0 64 64" aria-hidden="true"><rect width="64" height="64" fill="#141414"/><path d="M16 46V18h6l10 14 10-14h6v28h-7V30l-9 12-9-12v16z" fill="#e8501a"/></svg>M. Sharma</a>
     <div class="cell"><span class="lbl">Location</span><b>Fredericton, NB</b></div>
     <div class="cell"><span class="lbl">Local time</span><b id="clock">--:--</b></div>
-    <div class="cell xy" aria-hidden="true"><span class="lbl">Cursor</span><b id="xy">x 0000 · y 0000</b></div>
+    <div class="cell xy" aria-hidden="true"><span class="lbl">Cursor</span><b id="xy">x ---- · y ----</b></div>
     <nav aria-label="Sections">
       <a href="#building">Building</a>
       <a href="#notes">Notes</a>
@@ -270,6 +294,7 @@ section{padding:72px 0 0}
           <a class="btn solid" href="/go/tiktok" data-slug="tiktok"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M7 5v14l11-7z" fill="currentColor"/></svg>Watch Bits &amp; Bytes</a>
           <a class="btn line" href="#building">See what I'm building</a>
         </div>
+        <div class="quick" aria-label="Follow Mridul">{{mini}}</div>
       </div>
       <figure class="figure">
         <div class="portrait">
@@ -280,7 +305,7 @@ section{padding:72px 0 0}
         </div>
         <figcaption class="callout">
           <span class="leader" aria-hidden="true"></span>
-          <p><b>Fig. 1</b> The engineer. Software Solutions EIT at Dillon Consulting, founder of Gusset.</p>
+          <p><b>Fig. 1</b> Mridul Sharma. Software Solutions EIT at Dillon Consulting, founder of Gusset.</p>
           <p class="now"><span class="pulse" aria-hidden="true"></span>New episode every day</p>
         </figcaption>
       </figure>
@@ -299,7 +324,7 @@ section{padding:72px 0 0}
     <div class="sheet">
       <div class="head rv"><span class="no">02</span><h2 id="build-title">Building</h2><p>Software that helps people, designed, built and shipped end to end.</p></div>
       <div class="details">
-        <a class="detail rv" href="/go/gusset" data-slug="gusset" aria-labelledby="p-gusset">
+        <a class="detail rv" href="/go/gusset" data-slug="gusset">
           <div class="tab"><span>Detail A · Founder</span><span class="st"><span class="pulse" aria-hidden="true"></span>Live</span></div>
           <div class="stage" aria-hidden="true">
             <div class="g-log">
@@ -316,7 +341,7 @@ section{padding:72px 0 0}
             <span class="go">gussetlog.ca<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M7 17 17 7M8 7h9v9" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="square"/></svg></span>
           </div>
         </a>
-        <a class="detail rv" href="/go/switchboard" data-slug="switchboard" aria-labelledby="p-switch">
+        <a class="detail rv" href="/go/switchboard" data-slug="switchboard">
           <div class="tab"><span>Detail B · Side project</span><span class="st">In progress</span></div>
           <div class="stage s-stage" aria-hidden="true">
             <svg viewBox="0 0 400 250" preserveAspectRatio="xMidYMid meet">
@@ -353,7 +378,13 @@ section{padding:72px 0 0}
       <div class="notes">
         <figure class="pseudo rv">
           <div class="tab"><span>how_i_work.pseudo</span><span>Note 1</span></div>
-          <pre id="typed" aria-hidden="true"></pre>
+          <pre id="typed" aria-hidden="true"><span class="c">// how I work</span>
+<span class="k">for each </span>problem:
+    understand the people first
+    sketch the architecture
+    write the <span class="f">pseudocode</span>
+    build it, ship it
+    explain it <span class="f">simply</span></pre>
           <figcaption class="sr">For each problem: understand the people first, sketch the architecture, write the pseudocode, build it and ship it, then explain it simply.</figcaption>
         </figure>
         <ul class="facts rv">
@@ -368,7 +399,7 @@ section{padding:72px 0 0}
 
   <section id="revisions" aria-labelledby="rev-title">
     <div class="sheet">
-      <div class="head rv"><span class="no">04</span><h2 id="rev-title">Revision history</h2><p>Where I've built things. The full story is on <a href="/go/linkedin" data-slug="linkedin" style="text-decoration:underline;text-underline-offset:3px">LinkedIn</a>.</p></div>
+      <div class="head rv"><span class="no">04</span><h2 id="rev-title">Revision history</h2><p>Where I've built things. The full story is on <a href="/go/linkedin" data-slug="linkedin">LinkedIn</a>.</p></div>
       <table class="rev rv">
         <thead><tr><th scope="col">Rev</th><th scope="col">Date</th><th scope="col">Description</th></tr></thead>
         <tbody>
@@ -403,10 +434,10 @@ section{padding:72px 0 0}
   t();setInterval(t,30000);
 
   var xy=d.getElementById('xy');
-  if(hover)addEventListener('pointermove',function(e){xy.textContent='x '+String(Math.round(e.pageX)).padStart(4,'0')+' · y '+String(Math.round(e.pageY)).padStart(4,'0')},{passive:true});
+  var q=0;if(hover)addEventListener('pointermove',function(e){if(q)return;q=requestAnimationFrame(function(){q=0;xy.textContent='x '+String(Math.round(e.pageX)).padStart(4,'0')+' \u00b7 y '+String(Math.round(e.pageY)).padStart(4,'0')})},{passive:true});
 
   var io=new IntersectionObserver(function(es){es.forEach(function(e){if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target)}})},{rootMargin:'0px 0px -8% 0px'});
-  d.querySelectorAll('.rv').forEach(function(el){io.observe(el)});
+  d.querySelectorAll('.rv,.routes').forEach(function(el){io.observe(el)});
 
   var lines=[['c','// how I work'],['k','for each ','','problem:'],['','    understand the people first'],['','    sketch the architecture'],['','    write the ','f','pseudocode'],['','    build it, ship it'],['','    explain it ','f','simply']];
   function esc(s){return s.replace(/&/g,'&amp;').replace(/</g,'&lt;')}
@@ -414,7 +445,8 @@ section{padding:72px 0 0}
   function full(l){var o='';for(var i=0;i<l.length;i+=2)o+=seg(l[i],l[i+1]);return o}
   var pre=d.getElementById('typed');
   function type(){
-    if(reduce){pre.innerHTML=lines.map(full).join('\n');return}
+    if(reduce)return;
+    pre.innerHTML='<span class="caret"></span>';
     var li=0,ci=0;
     (function tick(){
       if(li>=lines.length){pre.innerHTML=lines.map(full).join('\n')+'<span class="caret"></span>';return}
@@ -426,7 +458,7 @@ section{padding:72px 0 0}
       if(ci>=len){li++;ci=0;setTimeout(tick,240)}else setTimeout(tick,24+Math.random()*28);
     })();
   }
-  new IntersectionObserver(function(es,o){if(es[0].isIntersecting){o.disconnect();type()}},{threshold:.4}).observe(pre);
+  new IntersectionObserver(function(es,o){if(es[0].isIntersecting){o.disconnect();type()}},{threshold:.15}).observe(pre);
 
   if(!hover){var pio=new IntersectionObserver(function(es){es.forEach(function(e){e.target.classList.toggle('active',e.isIntersecting)})},{threshold:.6});d.querySelectorAll('.detail,.figure').forEach(function(p){pio.observe(p)})}
 
@@ -454,8 +486,7 @@ section{padding:72px 0 0}
   function start(){if(timer||reduce)return;run();timer=setInterval(run,2200)}
   function stop(){clearInterval(timer);timer=null}
   if(reduce)d.getElementById('n0').classList.add('on');
-  else if(hover){card.addEventListener('pointerenter',start);card.addEventListener('pointerleave',stop);card.addEventListener('focus',start);card.addEventListener('blur',stop)}
-  else new IntersectionObserver(function(es){es.forEach(function(e){e.isIntersecting?start():stop()})},{threshold:.5}).observe(card);
+  else new IntersectionObserver(function(es){es.forEach(function(e){e.isIntersecting?start():stop()})},{threshold:.4}).observe(card);
 })();
 </script>
 </body>
