@@ -12,6 +12,7 @@ Personal links hub for @mridulmerges. Static page on Cloudflare Pages, plus two 
 - Visiting `/` logs a `view` (with `?src=` / referrer host / country / device).
 - Use `?src=tiktok`, `?src=ig`, `?src=yt` on bio links to see which app sends visitors.
 - `scripts/stats.sh 7` prints clicks per link, visits by source and clicks per day (needs `CF_ACCOUNT_ID` and `CF_API_TOKEN`).
+- `node scripts/report.mjs [days]` writes a visual report to stats/report.html (same env vars; `--demo` for sample data).
 
 ## Side projects
 Each project lives at its own subdomain (e.g. `switchboard.mridulmerges.com`) as a separate Pages project. Add a card in `links.json` under `projects` with a `slug` and `url` to make it clickable and tracked.
