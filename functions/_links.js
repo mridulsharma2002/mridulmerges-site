@@ -4,5 +4,6 @@ export const LINKS = {
   "instagram": "https://www.instagram.com/mridulmerges/",
   "youtube": "https://www.youtube.com/@mridulmerges",
   "linkedin": "https://www.linkedin.com/in/mridulmerges",
-  "gusset": "https://gussetlog.ca/?utm_source=mridulmerges&utm_medium=links"
+  "gusset": "https://gussetlog.ca/?utm_source=mridulmerges&utm_medium=site",
+  "switchboard": "https://switchboard.mridulmerges.ca/?utm_source=mridulmerges&utm_medium=site"
 };
