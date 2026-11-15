@@ -28,6 +28,7 @@ const card = (p) => {
 };
 
 const html = readFileSync("template.html", "utf8")
+  .replaceAll("{{url}}", site.url)
   .replaceAll("{{name}}", esc(site.name))
   .replaceAll("{{handle}}", esc(site.handle))
   .replaceAll("{{tagline}}", esc(site.tagline))
