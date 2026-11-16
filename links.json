@@ -3,53 +3,61 @@
   "name": "Mridul Sharma",
   "handle": "@mridulmerges",
   "tagline": "Tech, explained simply.",
-  "bio": "Software architecture, pseudocode and AI in under a minute. A new Bits & Bytes episode every day.",
+  "bio": "I build software that helps people, then explain how it works. Passionate about teaching, learning, and using AI to work smarter.",
   "social": [
     {
       "slug": "tiktok",
       "label": "TikTok",
-      "sub": "New episode every day",
+      "sub": "Daily episodes",
       "icon": "tiktok",
       "url": "https://www.tiktok.com/@mridulmerges"
     },
     {
       "slug": "instagram",
       "label": "Instagram",
-      "sub": "Bits & Bytes as Reels",
+      "sub": "Reels",
       "icon": "instagram",
       "url": "https://www.instagram.com/mridulmerges/"
     },
     {
       "slug": "youtube",
       "label": "YouTube",
-      "sub": "Bits & Bytes as Shorts",
+      "sub": "Shorts",
       "icon": "youtube",
       "url": "https://www.youtube.com/@mridulmerges"
     },
     {
       "slug": "linkedin",
       "label": "LinkedIn",
-      "sub": "Longer write-ups, Mon · Wed · Fri",
+      "sub": "Mon · Wed · Fri",
       "icon": "linkedin",
       "url": "https://www.linkedin.com/in/mridulmerges"
+    },
+    {
+      "slug": "github",
+      "label": "GitHub",
+      "sub": "Code",
+      "icon": "github",
+      "url": "https://github.com/mridulsharma2002"
     }
   ],
   "building": [
     {
       "slug": "gusset",
       "label": "Gusset",
-      "role": "Founder",
-      "status": "Live",
-      "sub": "A work-experience log for Canadian engineers-in-training working toward their P.Eng, with a built-in AI assistant.",
-      "url": "https://gussetlog.ca/?utm_source=mridulmerges&utm_medium=links"
+      "url": "https://gussetlog.ca/?utm_source=mridulmerges&utm_medium=site",
+      "desc": "Log one sentence a day and your engineering work-experience record builds itself, with an AI assistant along the way.",
+      "tag": "Founder",
+      "year": "2026"
     },
     {
-      "slug": null,
+      "slug": "switchboard",
       "label": "Switchboard",
-      "status": "In progress",
-      "sub": "Routes each prompt to the right AI model automatically, so simple questions don't burn the expensive one. Built in public."
+      "url": "https://switchboard.mridulmerges.ca/?utm_source=mridulmerges&utm_medium=site",
+      "desc": "Routes each step of an AI task to the right model, and escalates when a cheaper one isn't enough.",
+      "tag": "Side project, No. 1",
+      "year": "2026"
     }
   ],
-  "signoff": "Plant a seed today, grow a better tomorrow.",
-  "note": "More small builds on the way, each explained start to finish."
+  "signoff": "Plant a seed today, grow a better tomorrow."
 }
