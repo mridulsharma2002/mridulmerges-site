@@ -11,17 +11,23 @@ const arrow = `<svg class="arr" viewBox="0 0 16 16" aria-hidden="true"><path d="
 
 const social = site.social.map((l) => `
       <li><a class="row" href="/go/${l.slug}" data-slug="${l.slug}">
-        <span class="ic">${svg(l.icon)}</span><b>${esc(l.label)}</b><span class="sub">${esc(l.sub)}</span>${arrow}
+        <span class="ic">${svg(l.icon)}</span><b>${esc(l.label)}</b>${arrow}
       </a></li>`).join("");
 
 const mark = {
-  gusset: gus,
-  switchboard: `<svg class="sw" viewBox="0 0 26 26" aria-hidden="true"><path class="route" d="M5 13 C 11 13, 12 6, 20 6M5 13H20M5 13 C 11 13, 12 20, 20 20"/><circle class="node" cx="5" cy="13" r="2.6"/><circle class="node hot" cx="20" cy="6" r="2.6"/><circle class="node" cx="20" cy="13" r="2.6"/><circle class="node" cx="20" cy="20" r="2.6"/></svg>`,
+  gusset: `<span class="mark gusslot" aria-hidden="true">${gus}<span class="bubble">What did you work on today?</span></span>`,
+  switchboard: `<span class="mark" aria-hidden="true"><svg class="sw" viewBox="0 0 26 26"><path class="route" d="M5 13 C 11 13, 12 6, 20 6M5 13H20M5 13 C 11 13, 12 20, 20 20"/><circle class="node" cx="5" cy="13" r="2.6"/><circle class="node hot" cx="20" cy="6" r="2.6"/><circle class="node" cx="20" cy="13" r="2.6"/><circle class="node" cx="20" cy="20" r="2.6"/></svg></span>`,
 };
+const board = `<span class="demo" aria-hidden="true"><span><span class="board">
+          <svg viewBox="0 0 268 76"><path class="ln" d="M14 38 C 100 38, 130 12, 200 12"/><path class="ln" d="M14 38 H 200"/><path class="ln" d="M14 38 C 100 38, 130 64, 200 64"/>
+          <circle class="src" cx="14" cy="38" r="5"/><circle class="dst" cx="200" cy="12" r="5"/><circle class="dst" cx="200" cy="38" r="5"/><circle class="dst" cx="200" cy="64" r="5"/>
+          <text class="lb" x="212" y="16">Haiku</text><text class="lb" x="212" y="42">Sonnet</text><text class="lb" x="212" y="68">Opus</text><circle class="pk" cx="14" cy="38" r="0"/></svg>
+          <span class="cap"><span>Step 1 · Summarize the ticket</span><b>→ Haiku</b></span>
+        </span></span></span>`;
 const projects = site.building.map((p) => `
       <li><a class="proj" href="/go/${p.slug}" data-slug="${p.slug}">
-        <span class="mark" aria-hidden="true">${mark[p.slug] || ""}</span>
-        <span><b>${esc(p.label)}</b><span class="pill">${esc(p.tag)}</span><p>${esc(p.desc)}</p></span><span class="yr">${esc(p.year)}</span>
+        ${mark[p.slug] || "<span></span>"}
+        <span><b>${esc(p.label)}</b><span class="pill">${esc(p.tag)}</span><p>${esc(p.desc)}</p>${p.slug === "switchboard" ? board : ""}</span><span class="yr">${esc(p.year)}</span>
       </a></li>`).join("");
 
 const html = readFileSync("template.html", "utf8")
