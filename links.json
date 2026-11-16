@@ -3,26 +3,26 @@
   "name": "Mridul Sharma",
   "handle": "@mridulmerges",
   "tagline": "Tech, explained simply.",
-  "bio": "Software engineer, founder, and a teacher at heart. I build software that helps people, then explain how it works in plain English.",
+  "bio": "Software engineer and founder of Gusset. Passionate about teaching, learning, building software, and using AI to work smarter.",
   "social": [
     {
       "slug": "tiktok",
       "label": "TikTok",
-      "sub": "Daily episodes · @mridulmerges",
+      "sub": "Daily episodes",
       "icon": "tiktok",
       "url": "https://www.tiktok.com/@mridulmerges"
     },
     {
       "slug": "instagram",
       "label": "Instagram",
-      "sub": "Reels · @mridulmerges",
+      "sub": "Reels",
       "icon": "instagram",
       "url": "https://www.instagram.com/mridulmerges/"
     },
     {
       "slug": "youtube",
       "label": "YouTube",
-      "sub": "Shorts · @mridulmerges",
+      "sub": "Shorts",
       "icon": "youtube",
       "url": "https://www.youtube.com/@mridulmerges"
     },
@@ -32,18 +32,29 @@
       "sub": "Deep dives · Mon, Wed, Fri",
       "icon": "linkedin",
       "url": "https://www.linkedin.com/in/mridulmerges"
+    },
+    {
+      "slug": "github",
+      "label": "GitHub",
+      "sub": "Code and side projects",
+      "icon": "github",
+      "url": "https://github.com/mridulsharma2002"
     }
   ],
   "building": [
     {
       "slug": "gusset",
       "label": "Gusset",
-      "url": "https://gussetlog.ca/?utm_source=mridulmerges&utm_medium=site"
+      "url": "https://gussetlog.ca/?utm_source=mridulmerges&utm_medium=site",
+      "desc": "Log one sentence a day. Your engineering work-experience record builds itself, with Gus, an AI assistant, helping along the way.",
+      "tag": "Founder"
     },
     {
       "slug": "switchboard",
       "label": "Switchboard",
-      "url": "https://switchboard.mridulmerges.ca/?utm_source=mridulmerges&utm_medium=site"
+      "url": "https://switchboard.mridulmerges.ca/?utm_source=mridulmerges&utm_medium=site",
+      "desc": "Routes each step of an AI task to the right model, and escalates when a cheaper one isn't enough.",
+      "tag": "Side project"
     }
   ],
   "signoff": "Plant a seed today, grow a better tomorrow."
