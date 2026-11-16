@@ -10,13 +10,13 @@ const svg = (name) => `<svg viewBox="0 0 24 24" aria-hidden="true"><path d="${ic
 const arrow = `<svg class="arr" viewBox="0 0 16 16" aria-hidden="true"><path d="M5 11 11 5M6 5h5v5" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>`;
 
 const social = site.social.map((l) => `
-      <li><a class="row" href="/go/${l.slug}" data-slug="${l.slug}">
+      <li><a class="link" href="/go/${l.slug}" data-slug="${l.slug}">
         <span class="ic">${svg(l.icon)}</span><b>${esc(l.label)}</b>${arrow}
       </a></li>`).join("");
 
 const mark = {
-  gusset: `<span class="mark gusslot" aria-hidden="true">${gus}<span class="bubble">What did you work on today?</span></span>`,
-  switchboard: `<span class="mark" aria-hidden="true"><svg class="sw" viewBox="0 0 26 26"><path class="route" d="M5 13 C 11 13, 12 6, 20 6M5 13H20M5 13 C 11 13, 12 20, 20 20"/><circle class="node" cx="5" cy="13" r="2.6"/><circle class="node hot" cx="20" cy="6" r="2.6"/><circle class="node" cx="20" cy="13" r="2.6"/><circle class="node" cx="20" cy="20" r="2.6"/></svg></span>`,
+  gusset: `<span class="slot gusslot" aria-hidden="true">${gus}<span class="bubble">What did you work on today?</span></span>`,
+  switchboard: `<span class="slot" aria-hidden="true"><svg class="swmark" viewBox="0 0 32 32"><rect width="32" height="32" rx="9"/><circle class="j1" cx="9" cy="9" r="3"/><circle class="j2" cx="23" cy="23" r="3"/><path d="M9 9 C9 18 23 14 23 23"/></svg></span>`,
 };
 const board = `<span class="demo" aria-hidden="true"><span><span class="board">
           <svg viewBox="0 0 268 76"><path class="ln" d="M14 38 C 100 38, 130 12, 200 12"/><path class="ln" d="M14 38 H 200"/><path class="ln" d="M14 38 C 100 38, 130 64, 200 64"/>
