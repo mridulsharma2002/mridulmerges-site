@@ -8,35 +8,35 @@
     {
       "slug": "tiktok",
       "label": "TikTok",
-      "sub": "Daily episodes",
+      "sub": "@mridulmerges",
       "icon": "tiktok",
       "url": "https://www.tiktok.com/@mridulmerges"
     },
     {
       "slug": "instagram",
       "label": "Instagram",
-      "sub": "Reels",
+      "sub": "@mridulmerges",
       "icon": "instagram",
       "url": "https://www.instagram.com/mridulmerges/"
     },
     {
       "slug": "youtube",
       "label": "YouTube",
-      "sub": "Shorts",
+      "sub": "@mridulmerges",
       "icon": "youtube",
       "url": "https://www.youtube.com/@mridulmerges"
     },
     {
       "slug": "linkedin",
       "label": "LinkedIn",
-      "sub": "Mon · Wed · Fri",
+      "sub": "in/mridulmerges",
       "icon": "linkedin",
       "url": "https://www.linkedin.com/in/mridulmerges"
     },
     {
       "slug": "github",
       "label": "GitHub",
-      "sub": "Code",
+      "sub": "mridulsharma2002",
       "icon": "github",
       "url": "https://github.com/mridulsharma2002"
     }
@@ -55,8 +55,16 @@
       "label": "Switchboard",
       "url": "https://switchboard.mridulmerges.ca/?utm_source=mridulmerges&utm_medium=site",
       "desc": "Routes each step of an AI task to the right model, and escalates when a cheaper one isn't enough.",
-      "tag": "Side project, No. 1",
+      "tag": "Side project",
       "year": "2026"
+    },
+    {
+      "slug": "evantage",
+      "label": "EVantage",
+      "url": "https://mridulmerges.ca/evantage",
+      "desc": "EV charging that prices itself by the grid: cheaper when it's clean and quiet, pricier at the peak. My capstone, presented at UNB.",
+      "tag": "Capstone",
+      "year": "2025"
     }
   ],
   "signoff": "Plant a seed today, grow a better tomorrow."

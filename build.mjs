@@ -11,13 +11,14 @@ const arrow = `<svg class="arr" viewBox="0 0 16 16" aria-hidden="true"><path d="
 
 const social = site.social.map((l) => `
       <li><a class="link" href="/go/${l.slug}" data-slug="${l.slug}">
-        <span class="ic">${svg(l.icon)}</span><b>${esc(l.label)}</b>${arrow}
+        <span class="ic">${svg(l.icon)}</span><b>${esc(l.label)}</b><span class="h">${esc(l.sub)}</span>${arrow}
       </a></li>`).join("");
 
 const mark = {
-  gusset: `<span class="slot gusslot" aria-hidden="true">${gus}<span class="bubble">What did you work on today?</span></span>`,
+  gusset: `<span class="slot gusslot" aria-hidden="true">${gus}</span>`,
   switchboard: `<span class="slot" aria-hidden="true"><svg class="swmark" viewBox="0 0 32 32"><rect width="32" height="32" rx="9"/><circle class="j1" cx="9" cy="9" r="3"/><circle class="j2" cx="23" cy="23" r="3"/><path d="M9 9 C9 18 23 14 23 23"/></svg></span>`,
 };
+mark.evantage = `<span class="slot" aria-hidden="true"><svg class="evmark" viewBox="0 0 32 32"><rect width="32" height="32" rx="9"/><path class="bolt" d="M17.6 6 10 17h5.4l-1 9L22 15h-5.6l1.2-9Z"/></svg></span>`;
 const board = `<span class="demo" aria-hidden="true"><span><span class="board">
           <svg viewBox="0 0 268 76"><path class="ln" d="M14 38 C 100 38, 130 12, 200 12"/><path class="ln" d="M14 38 H 200"/><path class="ln" d="M14 38 C 100 38, 130 64, 200 64"/>
           <circle class="src" cx="14" cy="38" r="5"/><circle class="dst" cx="200" cy="12" r="5"/><circle class="dst" cx="200" cy="38" r="5"/><circle class="dst" cx="200" cy="64" r="5"/>
@@ -27,7 +28,7 @@ const board = `<span class="demo" aria-hidden="true"><span><span class="board">
 const projects = site.building.map((p) => `
       <li><a class="proj" href="/go/${p.slug}" data-slug="${p.slug}">
         ${mark[p.slug] || "<span></span>"}
-        <span><b>${esc(p.label)}</b><span class="pill">${esc(p.tag)}</span><p>${esc(p.desc)}</p>${p.slug === "switchboard" ? board : ""}</span><span class="yr">${esc(p.year)}</span>
+        <span><b>${esc(p.label)}</b><span class="pill">${esc(p.tag)}</span><p>${esc(p.desc)}</p>${p.slug === "gusset" ? `<span class="bubble" aria-hidden="true">What did you work on today?</span>` : ""}${p.slug === "switchboard" ? board : ""}</span><span class="yr">${esc(p.year)}</span>${arrow}
       </a></li>`).join("");
 
 const html = readFileSync("template.html", "utf8")
@@ -40,6 +41,7 @@ const html = readFileSync("template.html", "utf8")
   .replace("{{projects}}", projects);
 if (/\{\{\w+\}\}/.test(html)) throw new Error("unfilled placeholder: " + html.match(/\{\{\w+\}\}/)[0]);
 writeFileSync("public/index.html", html);
+writeFileSync("public/evantage.html", readFileSync("evantage.html", "utf8").replaceAll("{{url}}", site.url).replaceAll("{{year}}", String(new Date().getFullYear())));
 
 const map = Object.fromEntries([...site.social, ...site.building].filter((l) => l.slug && l.url).map((l) => [l.slug, l.url]));
 mkdirSync("functions", { recursive: true });
