@@ -51,12 +51,12 @@ main{max-width:540px;margin:0 auto;padding:clamp(40px,10vh,88px) 20px 48px}
 .me img{width:56px;height:56px;border-radius:50%;object-fit:cover;background:var(--hover);box-shadow:0 0 0 1px var(--line)}
 h1{font-size:17px;font-weight:600;letter-spacing:-.011em;line-height:1.3}
 .role{color:var(--ink-3);font-size:14.5px;line-height:1.3;margin-top:2px}
-.bio{margin-top:22px;color:var(--ink-2);font-size:15.5px;line-height:1.65;letter-spacing:-.003em}
-.bio strong{color:var(--ink);font-weight:500}
-.now{display:inline-flex;align-items:center;gap:8px;margin-top:16px;padding:5px 11px 5px 9px;border:1px solid var(--line);border-radius:99px;font-size:13px;color:var(--ink-2);background:var(--surface)}
-.dot{position:relative;width:7px;height:7px;border-radius:50%;background:var(--sig)}
-.dot::after{content:"";position:absolute;inset:0;border-radius:50%;background:var(--sig);animation:ping 2.4s var(--ease) infinite}
-@keyframes ping{0%{transform:scale(1);opacity:.55}80%,100%{transform:scale(2.6);opacity:0}}
+.prose{margin-top:20px;color:var(--ink-2);font-size:15.5px;line-height:1.7;letter-spacing:-.003em}
+.prose p+p{margin-top:14px}
+.about{margin-top:0}
+.prose em{font-style:italic;color:var(--ink)}
+.prose a{color:var(--ink);font-weight:500;text-decoration:underline;text-decoration-color:color-mix(in srgb,var(--sig) 70%,transparent);text-decoration-thickness:1.5px;text-underline-offset:3px;transition:text-decoration-color .2s}
+.prose a:hover{text-decoration-color:var(--sig)}
 
 /* sections */
 h2{margin:40px 0 10px;font-size:13px;font-weight:500;color:var(--ink-3);letter-spacing:0}
@@ -72,24 +72,26 @@ h2{margin:40px 0 10px;font-size:13px;font-weight:500;color:var(--ink-3);letter-s
 .row:active{background:var(--hover)}
 @media (max-width:420px){.row{grid-template-columns:20px 1fr 16px}.row .sub{display:none}}
 
-.proj{display:grid;grid-template-columns:36px 1fr 16px;gap:14px;align-items:start;padding:16px;transition:background .2s var(--ease)}
-.proj .mark{width:36px;height:36px;border-radius:9px;border:1px solid var(--line);background:var(--bg);display:grid;place-items:center;overflow:hidden}
-.proj .mark svg{width:26px;height:26px}
-.proj b{font-weight:500;font-size:15px}
-.proj .pill{margin-left:8px;font-size:12px;color:var(--ink-3)}
-.proj p{color:var(--ink-2);font-size:14px;line-height:1.55;margin-top:2px}
-.proj .arr{margin-top:4px;width:14px;height:14px;color:var(--ink-3);transition:transform .25s var(--ease),color .2s var(--ease)}
-@media (hover:hover){.proj:hover{background:var(--hover)}.proj:hover .arr{transform:translate(2px,-2px);color:var(--ink)}}
+.plain li+li{border-top:1px dashed var(--line)}
+.proj{display:grid;grid-template-columns:30px 1fr auto;gap:14px;align-items:start;padding:16px 2px}
+.proj .mark{width:30px;height:30px;display:grid;place-items:center;margin-top:1px}
+.proj .mark svg{width:28px;height:28px}
+.proj b{font-weight:500;font-size:15px;text-decoration:underline;text-decoration-color:transparent;text-underline-offset:3px;transition:text-decoration-color .2s}
+.proj .pill{margin-left:8px;font-size:13px;color:var(--ink-3)}
+.proj p{color:var(--ink-2);font-size:14.5px;line-height:1.55;margin-top:3px}
+.proj .yr{font-size:13px;color:var(--ink-3);font-variant-numeric:tabular-nums;margin-top:2px}
+@media (hover:hover){.proj:hover b{text-decoration-color:var(--ink)}}
 .sw .route{fill:none;stroke:var(--ink-3);stroke-width:2}
 .sw .node{fill:var(--bg);stroke:var(--ink);stroke-width:2.2}
 .sw .hot{fill:var(--sig);stroke:var(--sig)}
 
-footer{margin-top:44px;display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap;color:var(--ink-3);font-size:13px}
+footer{margin-top:48px;padding-top:18px;border-top:1px solid var(--line);color:var(--ink-2);font-size:14px}
+footer .meta{display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap;margin-top:6px;color:var(--ink-3);font-size:13px;font-variant-numeric:tabular-nums}
 
 /* entrance: soft blur-in, staggered */
-.in{opacity:0;filter:blur(4px);transform:translateY(6px);animation:in .7s var(--ease) forwards;animation-delay:calc(var(--i,0) * 60ms)}
-@keyframes in{to{opacity:1;filter:none;transform:none}}
-@media (prefers-reduced-motion:reduce){.in{animation:none;opacity:1;filter:none;transform:none}.dot::after{animation:none}.row,.proj,.arr{transition:none}}
+.in{opacity:0;animation:in .5s ease-out forwards;animation-delay:calc(var(--i,0) * 70ms)}
+@keyframes in{to{opacity:1}}
+@media (prefers-reduced-motion:reduce){.in{animation:none;opacity:1}.row,.proj,.arr{transition:none}}
 </style>
 </head>
 <body>
@@ -97,28 +99,38 @@ footer{margin-top:44px;display:flex;justify-content:space-between;gap:12px;flex-
   <header>
     <div class="me in" style="--i:0">
       <picture><source type="image/webp" srcset="/img/mridul-240.webp 1x, /img/mridul-480.webp 2x"><img src="/img/mridul-480.jpg" width="56" height="56" alt="Mridul Sharma" fetchpriority="high"></picture>
-      <div><h1>Mridul Sharma</h1><p class="role">Software engineer · Founder of Gusset</p></div>
+      <div><h1>Mridul Sharma</h1><p class="role">Software engineer · Fredericton, NB</p></div>
     </div>
-    <p class="bio in" style="--i:1"><strong>{{tagline}}</strong> {{bio}}</p>
-    <p class="now in" style="--i:2"><span class="dot" aria-hidden="true"></span>New episode every day · @mridulmerges</p>
+    <p class="prose in" style="--i:1">I build software that helps people, then explain how it works in plain English. <em>Tech, explained simply.</em></p>
   </header>
 
   <section aria-labelledby="f-h">
-    <h2 id="f-h" class="in" style="--i:3">Follow along</h2>
-    <ul class="group in" style="--i:3">{{social}}
+    <h2 id="f-h" class="in" style="--i:2">Follow along</h2>
+    <ul class="group in" style="--i:2">{{social}}
     </ul>
+  </section>
+
+  <section aria-labelledby="a-h">
+    <h2 id="a-h" class="in" style="--i:3">About</h2>
+    <div class="prose about in" style="--i:3">
+      <p>I care about clean architecture, writing the idea down as pseudocode before the code, and using AI to do more with less. Most of all I like teaching what I learn, while I'm still learning it.</p>
+      <p>Right now I'm growing <a href="/go/gusset" data-slug="gusset">Gusset</a>, posting a new episode every day, and shipping one small side project a month.</p>
+    </div>
   </section>
 
   <section aria-labelledby="b-h">
-    <h2 id="b-h" class="in" style="--i:5">Building</h2>
-    <ul class="group in" style="--i:5">{{projects}}
+    <h2 id="b-h" class="in" style="--i:4">Building</h2>
+    <ul class="plain in" style="--i:4">{{projects}}
     </ul>
   </section>
 
-  <footer class="in" style="--i:7">
-    <span>{{signoff}}</span>
-    <span>© {{year}} Mridul Sharma</span>
+  <footer class="in" style="--i:5">
+    <p>{{signoff}}</p>
+    <p class="meta"><span>© {{year}} Mridul Sharma</span><span id="clock" aria-label="Local time in Fredericton"></span></p>
   </footer>
 </main>
+<script>
+(function(){var el=document.getElementById("clock");if(!el)return;var f=new Intl.DateTimeFormat("en-CA",{hour:"numeric",minute:"2-digit",timeZone:"America/Moncton"});function t(){el.textContent=f.format(new Date())+" in Fredericton"}t();setInterval(t,30000)})();
+</script>
 </body>
 </html>

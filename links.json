@@ -47,14 +47,16 @@
       "label": "Gusset",
       "url": "https://gussetlog.ca/?utm_source=mridulmerges&utm_medium=site",
       "desc": "Log one sentence a day and your engineering work-experience record builds itself, with an AI assistant along the way.",
-      "tag": "Founder"
+      "tag": "Founder",
+      "year": "2026"
     },
     {
       "slug": "switchboard",
       "label": "Switchboard",
       "url": "https://switchboard.mridulmerges.ca/?utm_source=mridulmerges&utm_medium=site",
       "desc": "Routes each step of an AI task to the right model, and escalates when a cheaper one isn't enough.",
-      "tag": "Side project"
+      "tag": "Side project, No. 1",
+      "year": "2026"
     }
   ],
   "signoff": "Plant a seed today, grow a better tomorrow."

@@ -51,12 +51,12 @@ main{max-width:540px;margin:0 auto;padding:clamp(40px,10vh,88px) 20px 48px}
 .me img{width:56px;height:56px;border-radius:50%;object-fit:cover;background:var(--hover);box-shadow:0 0 0 1px var(--line)}
 h1{font-size:17px;font-weight:600;letter-spacing:-.011em;line-height:1.3}
 .role{color:var(--ink-3);font-size:14.5px;line-height:1.3;margin-top:2px}
-.bio{margin-top:22px;color:var(--ink-2);font-size:15.5px;line-height:1.65;letter-spacing:-.003em}
-.bio strong{color:var(--ink);font-weight:500}
-.now{display:inline-flex;align-items:center;gap:8px;margin-top:16px;padding:5px 11px 5px 9px;border:1px solid var(--line);border-radius:99px;font-size:13px;color:var(--ink-2);background:var(--surface)}
-.dot{position:relative;width:7px;height:7px;border-radius:50%;background:var(--sig)}
-.dot::after{content:"";position:absolute;inset:0;border-radius:50%;background:var(--sig);animation:ping 2.4s var(--ease) infinite}
-@keyframes ping{0%{transform:scale(1);opacity:.55}80%,100%{transform:scale(2.6);opacity:0}}
+.prose{margin-top:20px;color:var(--ink-2);font-size:15.5px;line-height:1.7;letter-spacing:-.003em}
+.prose p+p{margin-top:14px}
+.about{margin-top:0}
+.prose em{font-style:italic;color:var(--ink)}
+.prose a{color:var(--ink);font-weight:500;text-decoration:underline;text-decoration-color:color-mix(in srgb,var(--sig) 70%,transparent);text-decoration-thickness:1.5px;text-underline-offset:3px;transition:text-decoration-color .2s}
+.prose a:hover{text-decoration-color:var(--sig)}
 
 /* sections */
 h2{margin:40px 0 10px;font-size:13px;font-weight:500;color:var(--ink-3);letter-spacing:0}
@@ -72,24 +72,26 @@ h2{margin:40px 0 10px;font-size:13px;font-weight:500;color:var(--ink-3);letter-s
 .row:active{background:var(--hover)}
 @media (max-width:420px){.row{grid-template-columns:20px 1fr 16px}.row .sub{display:none}}
 
-.proj{display:grid;grid-template-columns:36px 1fr 16px;gap:14px;align-items:start;padding:16px;transition:background .2s var(--ease)}
-.proj .mark{width:36px;height:36px;border-radius:9px;border:1px solid var(--line);background:var(--bg);display:grid;place-items:center;overflow:hidden}
-.proj .mark svg{width:26px;height:26px}
-.proj b{font-weight:500;font-size:15px}
-.proj .pill{margin-left:8px;font-size:12px;color:var(--ink-3)}
-.proj p{color:var(--ink-2);font-size:14px;line-height:1.55;margin-top:2px}
-.proj .arr{margin-top:4px;width:14px;height:14px;color:var(--ink-3);transition:transform .25s var(--ease),color .2s var(--ease)}
-@media (hover:hover){.proj:hover{background:var(--hover)}.proj:hover .arr{transform:translate(2px,-2px);color:var(--ink)}}
+.plain li+li{border-top:1px dashed var(--line)}
+.proj{display:grid;grid-template-columns:30px 1fr auto;gap:14px;align-items:start;padding:16px 2px}
+.proj .mark{width:30px;height:30px;display:grid;place-items:center;margin-top:1px}
+.proj .mark svg{width:28px;height:28px}
+.proj b{font-weight:500;font-size:15px;text-decoration:underline;text-decoration-color:transparent;text-underline-offset:3px;transition:text-decoration-color .2s}
+.proj .pill{margin-left:8px;font-size:13px;color:var(--ink-3)}
+.proj p{color:var(--ink-2);font-size:14.5px;line-height:1.55;margin-top:3px}
+.proj .yr{font-size:13px;color:var(--ink-3);font-variant-numeric:tabular-nums;margin-top:2px}
+@media (hover:hover){.proj:hover b{text-decoration-color:var(--ink)}}
 .sw .route{fill:none;stroke:var(--ink-3);stroke-width:2}
 .sw .node{fill:var(--bg);stroke:var(--ink);stroke-width:2.2}
 .sw .hot{fill:var(--sig);stroke:var(--sig)}
 
-footer{margin-top:44px;display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap;color:var(--ink-3);font-size:13px}
+footer{margin-top:48px;padding-top:18px;border-top:1px solid var(--line);color:var(--ink-2);font-size:14px}
+footer .meta{display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap;margin-top:6px;color:var(--ink-3);font-size:13px;font-variant-numeric:tabular-nums}
 
 /* entrance: soft blur-in, staggered */
-.in{opacity:0;filter:blur(4px);transform:translateY(6px);animation:in .7s var(--ease) forwards;animation-delay:calc(var(--i,0) * 60ms)}
-@keyframes in{to{opacity:1;filter:none;transform:none}}
-@media (prefers-reduced-motion:reduce){.in{animation:none;opacity:1;filter:none;transform:none}.dot::after{animation:none}.row,.proj,.arr{transition:none}}
+.in{opacity:0;animation:in .5s ease-out forwards;animation-delay:calc(var(--i,0) * 70ms)}
+@keyframes in{to{opacity:1}}
+@media (prefers-reduced-motion:reduce){.in{animation:none;opacity:1}.row,.proj,.arr{transition:none}}
 </style>
 </head>
 <body>
@@ -97,15 +99,14 @@ footer{margin-top:44px;display:flex;justify-content:space-between;gap:12px;flex-
   <header>
     <div class="me in" style="--i:0">
       <picture><source type="image/webp" srcset="/img/mridul-240.webp 1x, /img/mridul-480.webp 2x"><img src="/img/mridul-480.jpg" width="56" height="56" alt="Mridul Sharma" fetchpriority="high"></picture>
-      <div><h1>Mridul Sharma</h1><p class="role">Software engineer · Founder of Gusset</p></div>
+      <div><h1>Mridul Sharma</h1><p class="role">Software engineer · Fredericton, NB</p></div>
     </div>
-    <p class="bio in" style="--i:1"><strong>Tech, explained simply.</strong> I build software that helps people, then explain how it works. Passionate about teaching, learning, and using AI to work smarter.</p>
-    <p class="now in" style="--i:2"><span class="dot" aria-hidden="true"></span>New episode every day · @mridulmerges</p>
+    <p class="prose in" style="--i:1">I build software that helps people, then explain how it works in plain English. <em>Tech, explained simply.</em></p>
   </header>
 
   <section aria-labelledby="f-h">
-    <h2 id="f-h" class="in" style="--i:3">Follow along</h2>
-    <ul class="group in" style="--i:3">
+    <h2 id="f-h" class="in" style="--i:2">Follow along</h2>
+    <ul class="group in" style="--i:2">
       <li><a class="row" href="/go/tiktok" data-slug="tiktok">
         <span class="ic"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12.525.02c1.31-.02 2.61-.01 3.91-.02.08 1.53.63 3.09 1.75 4.17 1.12 1.11 2.7 1.62 4.24 1.79v4.03c-1.44-.05-2.89-.35-4.2-.97-.57-.26-1.1-.59-1.62-.93-.01 2.92.01 5.84-.02 8.75-.08 1.4-.54 2.79-1.35 3.94-1.31 1.92-3.58 3.17-5.91 3.21-1.43.08-2.86-.31-4.08-1.03-2.02-1.19-3.44-3.37-3.65-5.71-.02-.5-.03-1-.01-1.49.18-1.9 1.12-3.72 2.58-4.96 1.66-1.44 3.98-2.13 6.15-1.72.02 1.48-.04 2.96-.04 4.44-.99-.32-2.15-.23-3.02.37-.63.41-1.11 1.04-1.36 1.75-.21.51-.15 1.07-.14 1.61.24 1.64 1.82 3.02 3.5 2.87 1.12-.01 2.19-.66 2.77-1.61.19-.33.4-.67.41-1.06.1-1.79.06-3.57.07-5.36.01-4.03-.01-8.05.02-12.07z"/></svg></span><b>TikTok</b><span class="sub">Daily episodes</span><svg class="arr" viewBox="0 0 16 16" aria-hidden="true"><path d="M5 11 11 5M6 5h5v5" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>
       </a></li>
@@ -124,24 +125,35 @@ footer{margin-top:44px;display:flex;justify-content:space-between;gap:12px;flex-
     </ul>
   </section>
 
+  <section aria-labelledby="a-h">
+    <h2 id="a-h" class="in" style="--i:3">About</h2>
+    <div class="prose about in" style="--i:3">
+      <p>I care about clean architecture, writing the idea down as pseudocode before the code, and using AI to do more with less. Most of all I like teaching what I learn, while I'm still learning it.</p>
+      <p>Right now I'm growing <a href="/go/gusset" data-slug="gusset">Gusset</a>, posting a new episode every day, and shipping one small side project a month.</p>
+    </div>
+  </section>
+
   <section aria-labelledby="b-h">
-    <h2 id="b-h" class="in" style="--i:5">Building</h2>
-    <ul class="group in" style="--i:5">
+    <h2 id="b-h" class="in" style="--i:4">Building</h2>
+    <ul class="plain in" style="--i:4">
       <li><a class="proj" href="/go/gusset" data-slug="gusset">
         <span class="mark" aria-hidden="true"><svg viewBox="0 0 120 120" class="gus" width="100" height="100" aria-hidden="true"><defs><linearGradient id="gusG" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#ff9a5c"/><stop offset=".55" stop-color="#ff7a3d"/><stop offset="1" stop-color="#d9480f"/></linearGradient><linearGradient id="gusH" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#ffffff"/><stop offset="1" stop-color="#d9d9de"/></linearGradient><radialGradient id="gusR" cx=".35" cy=".3" r=".8"><stop offset="0" stop-color="#fff" stop-opacity=".55"/><stop offset=".4" stop-color="#fff" stop-opacity="0"/></radialGradient></defs><ellipse cx="62" cy="113" rx="44" ry="4" fill="#000" opacity=".25"/><g class="gus-body"><rect x="28" y="104" width="14" height="7" rx="3.5" fill="#b8430f"/><rect x="78" y="104" width="14" height="7" rx="3.5" fill="#b8430f"/><g class="gus-arm"><path d="M72 70 Q88 66 96 50" fill="none" stroke="#b8430f" stroke-width="4" stroke-linecap="round"/><circle cx="97" cy="47" r="5" fill="#b8430f"/></g><path d="M14 50 Q14 44 20 44 L45 44 Q49.5 44 53 47 L104 92 Q112 100 102 104 L22 104 Q14 104 14 96 Z" fill="url(#gusG)"/><path d="M14 50 Q14 44 20 44 L45 44 Q49.5 44 53 47 L104 92 Q112 100 102 104 L22 104 Q14 104 14 96 Z" fill="url(#gusR)"/><path d="M20 52 L20 98 L94 98" fill="none" stroke="#fff" stroke-opacity=".3" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/><g transform="translate(1.48 -6.86) scale(0.92) rotate(-9 31 58)"><g class="gus-hat"><path d="M5 54 C3 -4 57 -4 55 54 Z" fill="url(#gusH)" stroke="#1d1d1f" stroke-opacity=".35" stroke-width="1.5"/><path d="M26 12 Q30 11 34 12 L34 52 L26 52 Z" fill="#000" opacity=".07"/><rect x="1" y="51" width="60" height="7" rx="3.5" fill="#f2f2f4" stroke="#1d1d1f" stroke-opacity=".35" stroke-width="1.5"/></g></g><g class="gus-eyes"><circle cx="30" cy="66" r="7.5" fill="#1d1d1f"/><circle cx="48" cy="66" r="7.5" fill="#1d1d1f"/><circle cx="30" cy="66" r="6" fill="#fff"/><circle cx="48" cy="66" r="6" fill="#fff"/><g class="gus-pupils"><circle cx="30" cy="66" r="3.6" fill="#1d1d1f"/><circle cx="48" cy="66" r="3.6" fill="#1d1d1f"/><circle cx="31.3" cy="64.6" r="1.2" fill="#fff"/><circle cx="49.3" cy="64.6" r="1.2" fill="#fff"/></g></g><path class="gus-smile" d="M31 81 Q39 87 47 81" fill="none" stroke="#1d1d1f" stroke-width="3" stroke-linecap="round"/><circle cx="70" cy="94" r="3.2" fill="#1d1d1f" opacity=".5"/><circle cx="82" cy="94" r="3.2" fill="#1d1d1f" opacity=".5"/></g></svg></span>
-        <span><b>Gusset</b><span class="pill">Founder</span><p>Log one sentence a day and your engineering work-experience record builds itself, with an AI assistant along the way.</p></span><svg class="arr" viewBox="0 0 16 16" aria-hidden="true"><path d="M5 11 11 5M6 5h5v5" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        <span><b>Gusset</b><span class="pill">Founder</span><p>Log one sentence a day and your engineering work-experience record builds itself, with an AI assistant along the way.</p></span><span class="yr">2026</span>
       </a></li>
       <li><a class="proj" href="/go/switchboard" data-slug="switchboard">
         <span class="mark" aria-hidden="true"><svg class="sw" viewBox="0 0 26 26" aria-hidden="true"><path class="route" d="M5 13 C 11 13, 12 6, 20 6M5 13H20M5 13 C 11 13, 12 20, 20 20"/><circle class="node" cx="5" cy="13" r="2.6"/><circle class="node hot" cx="20" cy="6" r="2.6"/><circle class="node" cx="20" cy="13" r="2.6"/><circle class="node" cx="20" cy="20" r="2.6"/></svg></span>
-        <span><b>Switchboard</b><span class="pill">Side project</span><p>Routes each step of an AI task to the right model, and escalates when a cheaper one isn't enough.</p></span><svg class="arr" viewBox="0 0 16 16" aria-hidden="true"><path d="M5 11 11 5M6 5h5v5" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        <span><b>Switchboard</b><span class="pill">Side project, No. 1</span><p>Routes each step of an AI task to the right model, and escalates when a cheaper one isn't enough.</p></span><span class="yr">2026</span>
       </a></li>
     </ul>
   </section>
 
-  <footer class="in" style="--i:7">
-    <span>Plant a seed today, grow a better tomorrow.</span>
-    <span>© 2026 Mridul Sharma</span>
+  <footer class="in" style="--i:5">
+    <p>Plant a seed today, grow a better tomorrow.</p>
+    <p class="meta"><span>© 2026 Mridul Sharma</span><span id="clock" aria-label="Local time in Fredericton"></span></p>
   </footer>
 </main>
+<script>
+(function(){var el=document.getElementById("clock");if(!el)return;var f=new Intl.DateTimeFormat("en-CA",{hour:"numeric",minute:"2-digit",timeZone:"America/Moncton"});function t(){el.textContent=f.format(new Date())+" in Fredericton"}t();setInterval(t,30000)})();
+</script>
 </body>
 </html>

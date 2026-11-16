@@ -21,7 +21,7 @@ const mark = {
 const projects = site.building.map((p) => `
       <li><a class="proj" href="/go/${p.slug}" data-slug="${p.slug}">
         <span class="mark" aria-hidden="true">${mark[p.slug] || ""}</span>
-        <span><b>${esc(p.label)}</b><span class="pill">${esc(p.tag)}</span><p>${esc(p.desc)}</p></span>${arrow}
+        <span><b>${esc(p.label)}</b><span class="pill">${esc(p.tag)}</span><p>${esc(p.desc)}</p></span><span class="yr">${esc(p.year)}</span>
       </a></li>`).join("");
 
 const html = readFileSync("template.html", "utf8")
