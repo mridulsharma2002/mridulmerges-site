@@ -7,31 +7,26 @@ const icons = JSON.parse(readFileSync("icons.json", "utf8"));
 const gus = readFileSync("assets/gus.svg", "utf8").trim();
 const esc = (s) => String(s).replace(/&/g, "&amp;").replace(/</g, "&lt;").replace(/>/g, "&gt;").replace(/"/g, "&quot;");
 const svg = (name) => `<svg viewBox="0 0 24 24" aria-hidden="true"><path d="${icons[name]}"/></svg>`;
-const arrow = (cls) => `<svg class="${cls}" viewBox="0 0 24 24" aria-hidden="true"><path d="M4 12h15M13 6l6 6-6 6" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>`;
+const arrow = `<svg class="arr" viewBox="0 0 16 16" aria-hidden="true"><path d="M5 11 11 5M6 5h5v5" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>`;
 
-const social = site.social.map((l, i) => `
-      <li class="in" style="--i:${3 + i}"><a class="link" href="/go/${l.slug}" data-slug="${l.slug}">
-        <span class="ic">${svg(l.icon)}</span>
-        <span><b>${esc(l.label)}</b><small>${esc(l.sub)}</small></span>
-        ${arrow("arr")}
+const social = site.social.map((l) => `
+      <li><a class="row" href="/go/${l.slug}" data-slug="${l.slug}">
+        <span class="ic">${svg(l.icon)}</span><b>${esc(l.label)}</b><span class="sub">${esc(l.sub)}</span>${arrow}
       </a></li>`).join("");
 
-const art = {
-  gusset: `<div class="art" aria-hidden="true">${gus}</div>`,
-  switchboard: `<div class="art sw" aria-hidden="true"><svg viewBox="0 0 64 64"><path class="route" d="M8 32 C 24 32, 30 12, 54 12"/><path class="route" d="M8 32 H 54"/><path class="route" d="M8 32 C 24 32, 30 52, 54 52"/><circle class="node" cx="8" cy="32" r="5"/><circle class="node" cx="54" cy="12" r="5"/><circle class="node" cx="54" cy="32" r="5"/><circle class="node" cx="54" cy="52" r="5"/><circle class="pkt" r="3.6"/></svg></div>`,
+const mark = {
+  gusset: gus,
+  switchboard: `<svg class="sw" viewBox="0 0 26 26" aria-hidden="true"><path class="route" d="M5 13 C 11 13, 12 6, 20 6M5 13H20M5 13 C 11 13, 12 20, 20 20"/><circle class="node" cx="5" cy="13" r="2.6"/><circle class="node hot" cx="20" cy="6" r="2.6"/><circle class="node" cx="20" cy="13" r="2.6"/><circle class="node" cx="20" cy="20" r="2.6"/></svg>`,
 };
-const projects = site.building.map((p, i) => `
-      <a class="proj in" style="--i:${10 + i}" href="/go/${p.slug}" data-slug="${p.slug}">
-        <span class="top"><b>${esc(p.label)}</b><span class="pill">${esc(p.tag)}</span></span>
-        <p>${esc(p.desc)}</p>
-        <span class="go">Visit ${esc(p.label)} ${arrow("")}</span>
-        ${art[p.slug] || ""}
-      </a>`).join("");
+const projects = site.building.map((p) => `
+      <li><a class="proj" href="/go/${p.slug}" data-slug="${p.slug}">
+        <span class="mark" aria-hidden="true">${mark[p.slug] || ""}</span>
+        <span><b>${esc(p.label)}</b><span class="pill">${esc(p.tag)}</span><p>${esc(p.desc)}</p></span>${arrow}
+      </a></li>`).join("");
 
-const tagline = esc(site.tagline).replace(/^Tech,/, "<em>Tech,</em>");
 const html = readFileSync("template.html", "utf8")
   .replaceAll("{{url}}", site.url)
-  .replace("{{tagline_html}}", tagline)
+  .replaceAll("{{tagline}}", esc(site.tagline))
   .replaceAll("{{bio}}", esc(site.bio))
   .replaceAll("{{signoff}}", esc(site.signoff))
   .replaceAll("{{year}}", String(new Date().getFullYear()))

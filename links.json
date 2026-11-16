@@ -3,7 +3,7 @@
   "name": "Mridul Sharma",
   "handle": "@mridulmerges",
   "tagline": "Tech, explained simply.",
-  "bio": "Software engineer and founder of Gusset. Passionate about teaching, learning, building software, and using AI to work smarter.",
+  "bio": "I build software that helps people, then explain how it works. Passionate about teaching, learning, and using AI to work smarter.",
   "social": [
     {
       "slug": "tiktok",
@@ -29,14 +29,14 @@
     {
       "slug": "linkedin",
       "label": "LinkedIn",
-      "sub": "Deep dives · Mon, Wed, Fri",
+      "sub": "Mon · Wed · Fri",
       "icon": "linkedin",
       "url": "https://www.linkedin.com/in/mridulmerges"
     },
     {
       "slug": "github",
       "label": "GitHub",
-      "sub": "Code and side projects",
+      "sub": "Code",
       "icon": "github",
       "url": "https://github.com/mridulsharma2002"
     }
@@ -46,7 +46,7 @@
       "slug": "gusset",
       "label": "Gusset",
       "url": "https://gussetlog.ca/?utm_source=mridulmerges&utm_medium=site",
-      "desc": "Log one sentence a day. Your engineering work-experience record builds itself, with Gus, an AI assistant, helping along the way.",
+      "desc": "Log one sentence a day and your engineering work-experience record builds itself, with an AI assistant along the way.",
       "tag": "Founder"
     },
     {
