@@ -59,6 +59,14 @@
       "year": "2026"
     },
     {
+      "slug": "fly",
+      "label": "Fly Brain NPC",
+      "url": "https://fly.mridulmerges.ca/?utm_source=mridulmerges&utm_medium=site",
+      "desc": "A game character running on 867 neurons from a real fruit fly brain. Race it against a scripted NPC, or evolve a swarm.",
+      "tag": "Side project",
+      "year": "2026"
+    },
+    {
       "slug": "evantage",
       "label": "EVantage",
       "url": "https://mridulmerges.ca/evantage",
