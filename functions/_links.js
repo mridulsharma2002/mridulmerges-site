@@ -8,5 +8,6 @@ export const LINKS = {
   "gusset": "https://gussetlog.ca/?utm_source=mridulmerges&utm_medium=site",
   "switchboard": "https://switchboard.mridulmerges.ca/?utm_source=mridulmerges&utm_medium=site",
   "fly": "https://fly.mridulmerges.ca/?utm_source=mridulmerges&utm_medium=site",
+  "radar": "https://radar.mridulmerges.ca/?utm_source=mridulmerges&utm_medium=site",
   "evantage": "https://mridulmerges.ca/evantage"
 };
