@@ -156,6 +156,15 @@ h2{margin:0 0 10px;color:var(--muted);font-size:13px;font-weight:500;letter-spac
 .board .lb{font:500 13px var(--sans);fill:var(--st-muted);transition:fill .15s}
 .board .lb.on{fill:var(--lamp)}
 .board .pk{fill:var(--lamp)}
+.flyboard .glow{fill:var(--lamp);opacity:.14}
+.flyboard .sugar{fill:var(--lamp)}
+.flyboard .trail{fill:none;stroke:var(--st-line);stroke-width:1.5;stroke-dasharray:3 4}
+.flyboard .fly{fill:#c08a3e}
+.flyboard .fly circle{fill:#d2332a}
+.flyboard .nr circle{fill:var(--st-jack)}
+.proj.pop .flyboard .nr circle{animation:fire 1.4s infinite}
+@keyframes fire{0%,100%{fill:var(--st-jack)}12%{fill:var(--lamp)}30%{fill:var(--st-jack)}}
+@media (prefers-reduced-motion:reduce){.proj.pop .flyboard .nr circle{animation:none}}
 .board .cap{display:flex;justify-content:space-between;gap:8px;margin-top:6px;font:12px var(--mono);color:var(--st-muted)}
 .board .cap>span{min-width:0;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
 .board .cap b{color:var(--st-ink);font-weight:500;font-size:inherit;white-space:nowrap;flex:none}
@@ -244,7 +253,13 @@ h2{margin:0 0 10px;color:var(--muted);font-size:13px;font-weight:500;letter-spac
       </a></li>
       <li><a class="proj" href="/go/fly" data-slug="fly">
         <span class="slot" aria-hidden="true"><svg class="flymark" viewBox="0 0 32 32"><rect width="32" height="32" rx="9"/><path class="ax" d="M9 21 16 12 23 20M16 12v-3"/><circle class="n1" cx="9" cy="21" r="2.6"/><circle class="n2" cx="16" cy="12" r="2.6"/><circle class="n3" cx="23" cy="20" r="2.6"/><circle class="n4" cx="16" cy="8" r="1.8"/></svg></span>
-        <span><b>Fly Brain NPC</b><span class="pill">Side project</span><p>A game character running on 867 neurons from a real fruit fly brain. Race it against a scripted NPC, or evolve a swarm.</p></span><span class="yr">2026</span><svg class="arr" viewBox="0 0 16 16" aria-hidden="true"><path d="M5 11 11 5M6 5h5v5" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        <span><b>Fly Brain NPC</b><span class="pill">Side project</span><p>A game character running on 867 neurons from a real fruit fly brain. Race it against a scripted NPC, or evolve a swarm.</p><span class="demo" aria-hidden="true"><span><span class="board flyboard">
+          <svg viewBox="0 0 268 76"><circle class="glow" cx="196" cy="36" r="22"/><circle class="sugar" cx="196" cy="36" r="6"/>
+          <path class="trail" id="flytrail" d="M14 62 C 50 66, 58 18, 100 26 S 150 52, 186 38"/>
+          <g class="fly"><ellipse cx="0" cy="0" rx="5.5" ry="3.4"/><circle cx="5" cy="0" r="2.2"/><animateMotion dur="3.4s" repeatCount="indefinite" rotate="auto" keyPoints="0;1;1" keyTimes="0;.8;1" calcMode="linear"><mpath href="#flytrail"/></animateMotion></g>
+          <g class="nr"><circle cx="232" cy="24" r="3" style="animation-delay:0.00s"/><circle cx="244" cy="24" r="3" style="animation-delay:0.37s"/><circle cx="256" cy="24" r="3" style="animation-delay:0.74s"/><circle cx="232" cy="36" r="3" style="animation-delay:1.11s"/><circle cx="244" cy="36" r="3" style="animation-delay:0.08s"/><circle cx="256" cy="36" r="3" style="animation-delay:0.45s"/><circle cx="232" cy="48" r="3" style="animation-delay:0.82s"/><circle cx="244" cy="48" r="3" style="animation-delay:1.19s"/><circle cx="256" cy="48" r="3" style="animation-delay:0.16s"/></g></svg>
+          <span class="cap"><span>sugar → 867 neurons → MN9</span><b>eats</b></span>
+        </span></span></span></span><span class="yr">2026</span><svg class="arr" viewBox="0 0 16 16" aria-hidden="true"><path d="M5 11 11 5M6 5h5v5" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>
       </a></li>
       <li><a class="proj" href="/go/evantage" data-slug="evantage">
         <span class="slot" aria-hidden="true"><svg class="evmark" viewBox="0 0 32 32"><rect width="32" height="32" rx="9"/><path class="bolt" d="M17.6 6 10 17h5.4l-1 9L22 15h-5.6l1.2-9Z"/></svg></span>
