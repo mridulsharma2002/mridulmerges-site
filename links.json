@@ -67,6 +67,14 @@
       "year": "2026"
     },
     {
+      "slug": "radar",
+      "label": "Bluetooth Radar",
+      "url": "https://radar.mridulmerges.ca/?utm_source=mridulmerges&utm_medium=site",
+      "desc": "Your phone keeps saying “I’m here” over Bluetooth. This radar turns those hellos into anonymous dots. No names, no IDs, nothing saved.",
+      "tag": "Side project",
+      "year": "2026"
+    },
+    {
       "slug": "evantage",
       "label": "EVantage",
       "url": "https://mridulmerges.ca/evantage",

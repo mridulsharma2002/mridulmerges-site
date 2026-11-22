@@ -165,6 +165,18 @@ h2{margin:0 0 10px;color:var(--muted);font-size:13px;font-weight:500;letter-spac
 .proj.pop .flyboard .nr circle{animation:fire 1.4s infinite}
 @keyframes fire{0%,100%{fill:var(--st-jack)}12%{fill:var(--lamp)}30%{fill:var(--st-jack)}}
 @media (prefers-reduced-motion:reduce){.proj.pop .flyboard .nr circle{animation:none}}
+.rdmark{width:34px;height:34px;border-radius:9px}.rdmark rect{fill:var(--st-bg)}.rdmark .rg{fill:none;stroke:#3c3c40;stroke-width:1.2}.rdmark .sw{stroke:var(--lamp);stroke-width:1.4;stroke-linecap:round;opacity:.7}.rdmark .me{fill:var(--st-ink)}.rdmark .bl{fill:var(--lamp);transition:opacity .25s}.rdmark .b2{opacity:.45}.proj:hover .rdmark .b2{opacity:1}
+.rdboard .rg{fill:none;stroke:var(--st-line);stroke-width:1.2}
+.rdboard .sweep path{fill:var(--lamp);opacity:.22}
+.rdboard .sweep{transform-origin:0 0}
+.proj.pop .rdboard .sweep{animation:spin 3.3s linear infinite}
+.rdboard .me{fill:var(--st-ink)}
+.rdboard .bl{fill:var(--lamp);opacity:.35}
+.proj.pop .rdboard .bl{animation:blip 3.3s infinite}
+.rdboard .lb{font-size:12px}.rdboard .lb.sm{font:9.5px var(--mono)}
+@keyframes spin{to{transform:rotate(-360deg)}}
+@keyframes blip{0%,100%{opacity:.3}8%{opacity:1}40%{opacity:.3}}
+@media (prefers-reduced-motion:reduce){.proj.pop .rdboard .sweep,.proj.pop .rdboard .bl{animation:none}.rdboard .bl{opacity:.9}}
 .board .cap{display:flex;justify-content:space-between;gap:8px;margin-top:6px;font:12px var(--mono);color:var(--st-muted)}
 .board .cap>span{min-width:0;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
 .board .cap b{color:var(--st-ink);font-weight:500;font-size:inherit;white-space:nowrap;flex:none}
