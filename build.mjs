@@ -26,10 +26,17 @@ const board = `<span class="demo" aria-hidden="true"><span><span class="board">
           <text class="lb" x="212" y="16">Haiku</text><text class="lb" x="212" y="42">Sonnet</text><text class="lb" x="212" y="68">Opus</text><circle class="pk" cx="14" cy="38" r="0"/></svg>
           <span class="cap"><span>1 · Read the ticket</span><b>→ Haiku</b></span>
         </span></span></span>`;
+const flyDemo = `<span class="demo" aria-hidden="true"><span><span class="board flyboard">
+          <svg viewBox="0 0 268 76"><circle class="glow" cx="196" cy="36" r="22"/><circle class="sugar" cx="196" cy="36" r="6"/>
+          <path class="trail" id="flytrail" d="M14 62 C 50 66, 58 18, 100 26 S 150 52, 186 38"/>
+          <g class="fly"><ellipse cx="0" cy="0" rx="5.5" ry="3.4"/><circle cx="5" cy="0" r="2.2"/><animateMotion dur="3.4s" repeatCount="indefinite" rotate="auto" keyPoints="0;1;1" keyTimes="0;.8;1" calcMode="linear"><mpath href="#flytrail"/></animateMotion></g>
+          <g class="nr">${[0,1,2,3,4,5,6,7,8].map(i=>`<circle cx="${232+(i%3)*12}" cy="${24+Math.floor(i/3)*12}" r="3" style="animation-delay:${(i*0.37%1.4).toFixed(2)}s"/>`).join("")}</g></svg>
+          <span class="cap"><span>sugar → 867 neurons → MN9</span><b>eats</b></span>
+        </span></span></span>`;
 const projects = site.building.map((p) => `
       <li><a class="proj" href="/go/${p.slug}" data-slug="${p.slug}">
         ${mark[p.slug] || "<span></span>"}
-        <span><b>${esc(p.label)}</b><span class="pill">${esc(p.tag)}</span><p>${esc(p.desc)}</p>${p.slug === "gusset" ? `<span class="bubble" aria-hidden="true">What did you work on today?</span>` : ""}${p.slug === "switchboard" ? board : ""}</span><span class="yr">${esc(p.year)}</span>${arrow}
+        <span><b>${esc(p.label)}</b><span class="pill">${esc(p.tag)}</span><p>${esc(p.desc)}</p>${p.slug === "gusset" ? `<span class="bubble" aria-hidden="true">What did you work on today?</span>` : ""}${p.slug === "switchboard" ? board : ""}${p.slug === "fly" ? flyDemo : ""}</span><span class="yr">${esc(p.year)}</span>${arrow}
       </a></li>`).join("");
 
 const html = readFileSync("template.html", "utf8")

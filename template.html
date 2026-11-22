@@ -156,6 +156,15 @@ h2{margin:0 0 10px;color:var(--muted);font-size:13px;font-weight:500;letter-spac
 .board .lb{font:500 13px var(--sans);fill:var(--st-muted);transition:fill .15s}
 .board .lb.on{fill:var(--lamp)}
 .board .pk{fill:var(--lamp)}
+.flyboard .glow{fill:var(--lamp);opacity:.14}
+.flyboard .sugar{fill:var(--lamp)}
+.flyboard .trail{fill:none;stroke:var(--st-line);stroke-width:1.5;stroke-dasharray:3 4}
+.flyboard .fly{fill:#c08a3e}
+.flyboard .fly circle{fill:#d2332a}
+.flyboard .nr circle{fill:var(--st-jack)}
+.proj.pop .flyboard .nr circle{animation:fire 1.4s infinite}
+@keyframes fire{0%,100%{fill:var(--st-jack)}12%{fill:var(--lamp)}30%{fill:var(--st-jack)}}
+@media (prefers-reduced-motion:reduce){.proj.pop .flyboard .nr circle{animation:none}}
 .board .cap{display:flex;justify-content:space-between;gap:8px;margin-top:6px;font:12px var(--mono);color:var(--st-muted)}
 .board .cap>span{min-width:0;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
 .board .cap b{color:var(--st-ink);font-weight:500;font-size:inherit;white-space:nowrap;flex:none}
