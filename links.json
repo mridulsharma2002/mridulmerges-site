@@ -59,6 +59,14 @@
       "year": "2026"
     },
     {
+      "slug": "brick",
+      "label": "Brick Mode",
+      "url": "https://brick.mridulmerges.ca/?utm_source=mridulmerges&utm_medium=site",
+      "desc": "Keep the phone, lose the apps. Set up a school-hours guest list in two minutes, then let students, parents and teachers vote on what's on it.",
+      "tag": "Side project",
+      "year": "2026"
+    },
+    {
       "slug": "scan",
       "label": "Vision Scan",
       "url": "https://scan.mridulmerges.ca/?utm_source=mridulmerges&utm_medium=site",
