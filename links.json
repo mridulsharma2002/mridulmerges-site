@@ -59,6 +59,14 @@
       "year": "2026"
     },
     {
+      "slug": "sun",
+      "label": "Sun Clock",
+      "url": "https://sun.mridulmerges.ca/?utm_source=mridulmerges&utm_medium=site",
+      "desc": "Your phone screen follows the sun: cool and bright in the morning, warm in the evening, deep red at night. Plus how your body clock reads light.",
+      "tag": "Side project",
+      "year": "2026"
+    },
+    {
       "slug": "scan",
       "label": "Vision Scan",
       "url": "https://scan.mridulmerges.ca/?utm_source=mridulmerges&utm_medium=site",

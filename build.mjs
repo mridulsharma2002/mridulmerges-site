@@ -42,10 +42,18 @@ const scanDemo = `<span class="demo" aria-hidden="true"><span><span class="board
           <g class="pip"><rect x="178" y="10" width="34" height="44" rx="5" class="pc"/><rect x="216" y="10" width="34" height="44" rx="5" class="pd"/></g></svg>
           <span class="cap"><span>camera → AI depth → 10 cm blocks</span><b>filled</b></span>
         </span></span></span>`;
+// Sun Clock: the sun crosses the sky and the "screen" follows its color.
+mark.sun = `<span class="slot" aria-hidden="true"><svg class="sunmark" viewBox="0 0 32 32"><rect width="32" height="32" rx="9"/><path class="hz" d="M7 21h18"/><circle class="sn" cx="16" cy="19" r="5"/></svg></span>`;
+const sunDemo = `<span class="demo" aria-hidden="true"><span><span class="board sunboard">
+          <svg viewBox="0 0 268 76"><path class="arc" id="sunarc" d="M14 64 Q 98 -20 182 64"/><path class="hz" d="M8 64H188"/>
+          <circle class="sd" r="6"><animateMotion dur="4.8s" repeatCount="indefinite"><mpath href="#sunarc"/></animateMotion><animate attributeName="fill" dur="4.8s" repeatCount="indefinite" values="#ff8a3d;#fff4e6;#ff8a3d;#a10000" keyTimes="0;.5;.85;1"/></circle>
+          <rect class="ph" x="206" y="8" width="42" height="60" rx="7"><animate attributeName="fill" dur="4.8s" repeatCount="indefinite" values="#ff9b4a;#f3f6ff;#ffb15c;#8a0000" keyTimes="0;.5;.85;1"/></rect></svg>
+          <span class="cap"><span>time → warmth → screen</span><b>follows</b></span>
+        </span></span></span>`;
 const projects = site.building.map((p) => `
       <li><a class="proj" href="/go/${p.slug}" data-slug="${p.slug}">
         ${mark[p.slug] || "<span></span>"}
-        <span><b>${esc(p.label)}</b><span class="pill">${esc(p.tag)}</span><p>${esc(p.desc)}</p>${p.slug === "gusset" ? `<span class="bubble" aria-hidden="true">What did you work on today?</span>` : ""}${p.slug === "switchboard" ? board : ""}${p.slug === "fly" ? flyDemo : ""}${p.slug === "scan" ? scanDemo : ""}</span><span class="yr">${esc(p.year)}</span>${arrow}
+        <span><b>${esc(p.label)}</b><span class="pill">${esc(p.tag)}</span><p>${esc(p.desc)}</p>${p.slug === "gusset" ? `<span class="bubble" aria-hidden="true">What did you work on today?</span>` : ""}${p.slug === "switchboard" ? board : ""}${p.slug === "fly" ? flyDemo : ""}${p.slug === "scan" ? scanDemo : ""}${p.slug === "sun" ? sunDemo : ""}</span><span class="yr">${esc(p.year)}</span>${arrow}
       </a></li>`).join("");
 
 const html = readFileSync("template.html", "utf8")
