@@ -137,6 +137,13 @@ h2{margin:0 0 10px;color:var(--muted);font-size:13px;font-weight:500;letter-spac
 @media (prefers-color-scheme:dark){.bubble{background:#ededee;color:#111112}}
 @keyframes wave{0%,100%{transform:rotate(0)}30%{transform:rotate(-18deg)}65%{transform:rotate(10deg)}}
 .flymark{width:34px;height:34px;border-radius:9px}.flymark rect{fill:var(--st-bg)}.flymark .ax{fill:none;stroke:#5a5a60;stroke-width:1.4;stroke-linecap:round}.flymark circle{fill:#3c3c40;transition:fill .25s}.flymark .n2{fill:var(--lamp)}.proj:hover .flymark circle{fill:var(--lamp)}
+.scanmark{width:34px;height:34px;border-radius:9px}.scanmark>rect:first-child{fill:var(--st-bg)}.scanmark .c{fill:#3c3c40;transition:fill .25s}.scanmark .c3{fill:var(--lamp)}.proj:hover .scanmark .c{fill:var(--lamp)}
+.scanboard .blk{fill:var(--st-jack)}
+.proj.pop .scanboard .blk{animation:fill 3.2s infinite}
+@keyframes fill{0%,8%{fill:var(--st-jack)}20%,85%{fill:var(--lamp)}100%{fill:var(--st-jack)}}
+.scanboard .cam circle{fill:var(--st-ink)}.scanboard .fov{fill:var(--lamp);opacity:.16}
+.scanboard .pc{fill:var(--st-line)}.scanboard .pd{fill:var(--lamp);opacity:.55}
+@media (prefers-reduced-motion:reduce){.proj.pop .scanboard .blk{animation:none;fill:var(--lamp)}}
 .swmark{width:34px;height:34px;border-radius:9px}
 .swmark rect{fill:var(--st-bg)}.swmark .j1{fill:var(--lamp)}.swmark .j2{fill:none;stroke:var(--st-ink);stroke-width:2}
 .swmark path{fill:none;stroke:var(--lamp);stroke-width:2.4;stroke-linecap:round}
@@ -249,6 +256,15 @@ h2{margin:0 0 10px;color:var(--muted);font-size:13px;font-weight:500;letter-spac
           <circle class="src" cx="14" cy="38" r="5"/><circle class="dst" cx="200" cy="12" r="5"/><circle class="dst" cx="200" cy="38" r="5"/><circle class="dst" cx="200" cy="64" r="5"/>
           <text class="lb" x="212" y="16">Haiku</text><text class="lb" x="212" y="42">Sonnet</text><text class="lb" x="212" y="68">Opus</text><circle class="pk" cx="14" cy="38" r="0"/></svg>
           <span class="cap"><span>1 · Read the ticket</span><b>→ Haiku</b></span>
+        </span></span></span></span><span class="yr">2026</span><svg class="arr" viewBox="0 0 16 16" aria-hidden="true"><path d="M5 11 11 5M6 5h5v5" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>
+      </a></li>
+      <li><a class="proj" href="/go/scan" data-slug="scan">
+        <span class="slot" aria-hidden="true"><svg class="scanmark" viewBox="0 0 32 32"><rect width="32" height="32" rx="9"/><rect class="c c1" x="7" y="17" width="5.5" height="5.5" rx="1"/><rect class="c c2" x="13.25" y="17" width="5.5" height="5.5" rx="1"/><rect class="c c3" x="13.25" y="10.75" width="5.5" height="5.5" rx="1"/><rect class="c c4" x="19.5" y="17" width="5.5" height="5.5" rx="1"/></svg></span>
+        <span><b>Vision Scan</b><span class="pill">Side project</span><p>How a Tesla sees with only cameras, rebuilt on a phone. Walk around a room and watch AI fill it with 3D blocks. More phones, more cameras.</p><span class="demo" aria-hidden="true"><span><span class="board scanboard">
+          <svg viewBox="0 0 268 76"><g transform="translate(14 4)"><rect class="blk" x="0" y="52" width="11" height="11" rx="2" style="animation-delay:0.00s"/><rect class="blk" x="13" y="52" width="11" height="11" rx="2" style="animation-delay:0.16s"/><rect class="blk" x="26" y="52" width="11" height="11" rx="2" style="animation-delay:0.32s"/><rect class="blk" x="39" y="52" width="11" height="11" rx="2" style="animation-delay:0.48s"/><rect class="blk" x="52" y="52" width="11" height="11" rx="2" style="animation-delay:0.64s"/><rect class="blk" x="65" y="52" width="11" height="11" rx="2" style="animation-delay:0.80s"/><rect class="blk" x="78" y="52" width="11" height="11" rx="2" style="animation-delay:0.96s"/><rect class="blk" x="91" y="52" width="11" height="11" rx="2" style="animation-delay:1.12s"/><rect class="blk" x="104" y="52" width="11" height="11" rx="2" style="animation-delay:1.28s"/><rect class="blk" x="117" y="52" width="11" height="11" rx="2" style="animation-delay:1.44s"/><rect class="blk" x="0" y="39" width="11" height="11" rx="2" style="animation-delay:0.00s"/><rect class="blk" x="0" y="26" width="11" height="11" rx="2" style="animation-delay:0.00s"/><rect class="blk" x="0" y="13" width="11" height="11" rx="2" style="animation-delay:0.00s"/><rect class="blk" x="117" y="39" width="11" height="11" rx="2" style="animation-delay:1.44s"/><rect class="blk" x="117" y="26" width="11" height="11" rx="2" style="animation-delay:1.44s"/><rect class="blk" x="39" y="39" width="11" height="11" rx="2" style="animation-delay:0.48s"/><rect class="blk" x="52" y="39" width="11" height="11" rx="2" style="animation-delay:0.64s"/><rect class="blk" x="52" y="26" width="11" height="11" rx="2" style="animation-delay:0.64s"/><rect class="blk" x="78" y="39" width="11" height="11" rx="2" style="animation-delay:0.96s"/><rect class="blk" x="91" y="39" width="11" height="11" rx="2" style="animation-delay:1.12s"/></g>
+          <g class="cam"><path class="fov" d="M0 0 L-26 -40 L26 -40Z"/><circle r="4.5"/><animateTransform attributeName="transform" type="translate" values="40 70;120 70;40 70" dur="3.2s" repeatCount="indefinite"/></g>
+          <g class="pip"><rect x="178" y="10" width="34" height="44" rx="5" class="pc"/><rect x="216" y="10" width="34" height="44" rx="5" class="pd"/></g></svg>
+          <span class="cap"><span>camera → AI depth → 10 cm blocks</span><b>filled</b></span>
         </span></span></span></span><span class="yr">2026</span><svg class="arr" viewBox="0 0 16 16" aria-hidden="true"><path d="M5 11 11 5M6 5h5v5" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>
       </a></li>
       <li><a class="proj" href="/go/fly" data-slug="fly">

@@ -137,6 +137,13 @@ h2{margin:0 0 10px;color:var(--muted);font-size:13px;font-weight:500;letter-spac
 @media (prefers-color-scheme:dark){.bubble{background:#ededee;color:#111112}}
 @keyframes wave{0%,100%{transform:rotate(0)}30%{transform:rotate(-18deg)}65%{transform:rotate(10deg)}}
 .flymark{width:34px;height:34px;border-radius:9px}.flymark rect{fill:var(--st-bg)}.flymark .ax{fill:none;stroke:#5a5a60;stroke-width:1.4;stroke-linecap:round}.flymark circle{fill:#3c3c40;transition:fill .25s}.flymark .n2{fill:var(--lamp)}.proj:hover .flymark circle{fill:var(--lamp)}
+.scanmark{width:34px;height:34px;border-radius:9px}.scanmark>rect:first-child{fill:var(--st-bg)}.scanmark .c{fill:#3c3c40;transition:fill .25s}.scanmark .c3{fill:var(--lamp)}.proj:hover .scanmark .c{fill:var(--lamp)}
+.scanboard .blk{fill:var(--st-jack)}
+.proj.pop .scanboard .blk{animation:fill 3.2s infinite}
+@keyframes fill{0%,8%{fill:var(--st-jack)}20%,85%{fill:var(--lamp)}100%{fill:var(--st-jack)}}
+.scanboard .cam circle{fill:var(--st-ink)}.scanboard .fov{fill:var(--lamp);opacity:.16}
+.scanboard .pc{fill:var(--st-line)}.scanboard .pd{fill:var(--lamp);opacity:.55}
+@media (prefers-reduced-motion:reduce){.proj.pop .scanboard .blk{animation:none;fill:var(--lamp)}}
 .swmark{width:34px;height:34px;border-radius:9px}
 .swmark rect{fill:var(--st-bg)}.swmark .j1{fill:var(--lamp)}.swmark .j2{fill:none;stroke:var(--st-ink);stroke-width:2}
 .swmark path{fill:none;stroke:var(--lamp);stroke-width:2.4;stroke-linecap:round}

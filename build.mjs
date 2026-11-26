@@ -19,6 +19,7 @@ const mark = {
   switchboard: `<span class="slot" aria-hidden="true"><svg class="swmark" viewBox="0 0 32 32"><rect width="32" height="32" rx="9"/><circle class="j1" cx="9" cy="9" r="3"/><circle class="j2" cx="23" cy="23" r="3"/><path d="M9 9 C9 18 23 14 23 23"/></svg></span>`,
 };
 mark.fly = `<span class="slot" aria-hidden="true"><svg class="flymark" viewBox="0 0 32 32"><rect width="32" height="32" rx="9"/><path class="ax" d="M9 21 16 12 23 20M16 12v-3"/><circle class="n1" cx="9" cy="21" r="2.6"/><circle class="n2" cx="16" cy="12" r="2.6"/><circle class="n3" cx="23" cy="20" r="2.6"/><circle class="n4" cx="16" cy="8" r="1.8"/></svg></span>`;
+mark.scan = `<span class="slot" aria-hidden="true"><svg class="scanmark" viewBox="0 0 32 32"><rect width="32" height="32" rx="9"/><rect class="c c1" x="7" y="17" width="5.5" height="5.5" rx="1"/><rect class="c c2" x="13.25" y="17" width="5.5" height="5.5" rx="1"/><rect class="c c3" x="13.25" y="10.75" width="5.5" height="5.5" rx="1"/><rect class="c c4" x="19.5" y="17" width="5.5" height="5.5" rx="1"/></svg></span>`;
 mark.evantage = `<span class="slot" aria-hidden="true"><svg class="evmark" viewBox="0 0 32 32"><rect width="32" height="32" rx="9"/><path class="bolt" d="M17.6 6 10 17h5.4l-1 9L22 15h-5.6l1.2-9Z"/></svg></span>`;
 const board = `<span class="demo" aria-hidden="true"><span><span class="board">
           <svg viewBox="0 0 268 76"><path class="ln" d="M14 38 C 100 38, 130 12, 200 12"/><path class="ln" d="M14 38 H 200"/><path class="ln" d="M14 38 C 100 38, 130 64, 200 64"/>
@@ -33,10 +34,18 @@ const flyDemo = `<span class="demo" aria-hidden="true"><span><span class="board 
           <g class="nr">${[0,1,2,3,4,5,6,7,8].map(i=>`<circle cx="${232+(i%3)*12}" cy="${24+Math.floor(i/3)*12}" r="3" style="animation-delay:${(i*0.37%1.4).toFixed(2)}s"/>`).join("")}</g></svg>
           <span class="cap"><span>sugar → 867 neurons → MN9</span><b>eats</b></span>
         </span></span></span>`;
+// Vision Scan: a camera sweeps across a little room and blocks fill in behind it.
+const scanCells = [[0,4],[1,4],[2,4],[3,4],[4,4],[5,4],[6,4],[7,4],[8,4],[9,4],[0,3],[0,2],[0,1],[9,3],[9,2],[3,3],[4,3],[4,2],[6,3],[7,3]];
+const scanDemo = `<span class="demo" aria-hidden="true"><span><span class="board scanboard">
+          <svg viewBox="0 0 268 76"><g transform="translate(14 4)">${scanCells.map(([x,y],i)=>`<rect class="blk" x="${x*13}" y="${y*13}" width="11" height="11" rx="2" style="animation-delay:${(x*0.16).toFixed(2)}s"/>`).join("")}</g>
+          <g class="cam"><path class="fov" d="M0 0 L-26 -40 L26 -40Z"/><circle r="4.5"/><animateTransform attributeName="transform" type="translate" values="40 70;120 70;40 70" dur="3.2s" repeatCount="indefinite"/></g>
+          <g class="pip"><rect x="178" y="10" width="34" height="44" rx="5" class="pc"/><rect x="216" y="10" width="34" height="44" rx="5" class="pd"/></g></svg>
+          <span class="cap"><span>camera → AI depth → 10 cm blocks</span><b>filled</b></span>
+        </span></span></span>`;
 const projects = site.building.map((p) => `
       <li><a class="proj" href="/go/${p.slug}" data-slug="${p.slug}">
         ${mark[p.slug] || "<span></span>"}
-        <span><b>${esc(p.label)}</b><span class="pill">${esc(p.tag)}</span><p>${esc(p.desc)}</p>${p.slug === "gusset" ? `<span class="bubble" aria-hidden="true">What did you work on today?</span>` : ""}${p.slug === "switchboard" ? board : ""}${p.slug === "fly" ? flyDemo : ""}</span><span class="yr">${esc(p.year)}</span>${arrow}
+        <span><b>${esc(p.label)}</b><span class="pill">${esc(p.tag)}</span><p>${esc(p.desc)}</p>${p.slug === "gusset" ? `<span class="bubble" aria-hidden="true">What did you work on today?</span>` : ""}${p.slug === "switchboard" ? board : ""}${p.slug === "fly" ? flyDemo : ""}${p.slug === "scan" ? scanDemo : ""}</span><span class="yr">${esc(p.year)}</span>${arrow}
       </a></li>`).join("");
 
 const html = readFileSync("template.html", "utf8")

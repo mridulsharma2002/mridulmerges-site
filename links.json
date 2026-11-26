@@ -59,6 +59,14 @@
       "year": "2026"
     },
     {
+      "slug": "scan",
+      "label": "Vision Scan",
+      "url": "https://scan.mridulmerges.ca/?utm_source=mridulmerges&utm_medium=site",
+      "desc": "How a Tesla sees with only cameras, rebuilt on a phone. Walk around a room and watch AI fill it with 3D blocks. More phones, more cameras.",
+      "tag": "Side project",
+      "year": "2026"
+    },
+    {
       "slug": "fly",
       "label": "Fly Brain NPC",
       "url": "https://fly.mridulmerges.ca/?utm_source=mridulmerges&utm_medium=site",
